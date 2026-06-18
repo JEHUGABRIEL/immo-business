@@ -1165,9 +1165,6 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(168 105 62 / var(--tw-bg-opacity, 1));
 }
-.bg-transparent {
-  background-color: transparent;
-}
 .bg-vert-bouteille {
   --tw-bg-opacity: 1;
   background-color: rgb(51 72 59 / var(--tw-bg-opacity, 1));
@@ -1392,9 +1389,6 @@ video {
 }
 .pb-\[90px\] {
   padding-bottom: 90px;
-}
-.pb-\[9px\] {
-  padding-bottom: 9px;
 }
 .pl-7 {
   padding-left: 1.75rem;
