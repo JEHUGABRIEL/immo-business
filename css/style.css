@@ -261,7 +261,10 @@ nav a.actif::after {
   display: flex;
   gap: 0;
   width: max-content;
-  animation: marqueeScroll 40s linear infinite;
+  animation-name: marqueeScroll;
+  animation-duration: 40s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 .pays-marquee-track:hover {
   animation-play-state: paused;

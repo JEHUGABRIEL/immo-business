@@ -147,4 +147,29 @@
     }
   }
 
+  /* ── MARQUEE PAYS : vitesse adaptative ── */
+  (function () {
+    var track = document.querySelector('.pays-marquee-track');
+    if (!track) return;
+
+    function adjustSpeed() {
+      var trackWidth = track.scrollWidth;
+      var scrollDist = trackWidth / 2;
+      if (scrollDist < 1) return;
+      var vw = window.innerWidth;
+      // Plus lent sur mobile (lisibilité), plus rapide sur desktop
+      var speed = 20 + (vw - 320) * 0.015;
+      speed = Math.min(Math.max(speed, 18), 48);
+      var dur = Math.max(scrollDist / speed, 8);
+      track.style.animationDuration = Math.round(dur * 10) / 10 + 's';
+    }
+
+    adjustSpeed();
+    var timer;
+    window.addEventListener('resize', function () {
+      clearTimeout(timer);
+      timer = setTimeout(adjustSpeed, 150);
+    });
+  })();
+
 })();
