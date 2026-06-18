@@ -92,7 +92,7 @@ tailwind.config = {
       <a href="#apropos" class="text-encre text-sm border-b border-encre pb-[3px] no-underline hover:opacity-60 transition-opacity">Notre histoire</a>
     </div>
     <div class="hero-stats-row flex gap-12 mt-16 pt-8 flex-wrap max-lg:gap-7">
-      <div><strong class="block font-serif text-[1.9rem] font-medium text-encre">4</strong><span class="text-[0.74rem] text-encre-douce tracking-[.5px]">Pays de présence</span></div>
+      <div><strong class="block font-serif text-[1.9rem] font-medium text-encre">5</strong><span class="text-[0.74rem] text-encre-douce tracking-[.5px]">Pays de présence</span></div>
       <div><strong class="block font-serif text-[1.9rem] font-medium text-encre">2 200+</strong><span class="text-[0.74rem] text-encre-douce tracking-[.5px]">Familles suivies</span></div>
       <div><strong class="block font-serif text-[1.9rem] font-medium text-encre">5 ans</strong><span class="text-[0.74rem] text-encre-douce tracking-[.5px]">Sur le terrain</span></div>
     </div>
@@ -236,28 +236,27 @@ tailwind.config = {
     <div class="flex items-center gap-3 mb-[18px]"><div class="w-7 h-px bg-terre"></div><span class="text-[0.74rem] tracking-[2.2px] uppercase text-terre-fonce font-semibold">Parlons-en</span></div>
     <h2 class="font-serif text-[2.2rem] font-medium text-encre leading-tight">Écrivez-nous, où que vous soyez</h2>
     <p class="text-sm text-encre-douce my-[22px] leading-relaxed max-w-[380px]">Précisez votre pays et votre projet ; notre correspondant local vous répond généralement sous 24 heures.</p>
-    <div class="flex gap-4 py-[18px] border-b border-ligne items-start first:border-t border-t-ligne"><i class="fa-solid fa-earth-africa text-terre text-base w-5 mt-[3px]"></i><div><h4 class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce mb-[3px]">Zone de couverture</h4><p class="text-sm text-encre">Cameroun, Congo, Gabon, RCA</p></div></div>
-    <div class="flex gap-4 py-[18px] border-b border-ligne items-start"><i class="fa-brands fa-whatsapp text-terre text-base w-5 mt-[3px]"></i><div><h4 class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce mb-[3px]">WhatsApp</h4><a href="https://wa.me/" target="_blank" class="text-sm text-encre no-underline">Écrire directement</a></div></div>
+    <div class="flex gap-4 py-[18px] border-b border-ligne items-start first:border-t border-t-ligne"><i class="fa-solid fa-earth-africa text-terre text-base w-5 mt-[3px]"></i><div><h4 class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce mb-[3px]">Zone de couverture</h4><p class="text-sm text-encre">Cameroun, Congo, Gabon, RCA</p></div></div>        <div class="flex gap-4 py-[18px] border-b border-ligne items-start"><i class="fa-brands fa-whatsapp text-terre text-base w-5 mt-[3px]"></i><div><h4 class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce mb-[3px]">WhatsApp</h4><a href="https://wa.me/23675298984" target="_blank" class="text-sm text-encre no-underline">+236 75 29 89 84</a></div></div>
     <div class="flex gap-4 py-[18px] border-b border-ligne items-start"><i class="fa-solid fa-envelope text-terre text-base w-5 mt-[3px]"></i><div><h4 class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce mb-[3px]">Email</h4><a href="mailto:contact@immobusiness-intl.com" class="text-sm text-encre no-underline">contact@immobusiness-intl.com</a></div></div>
     <div class="flex gap-4 py-[18px] border-b border-ligne items-start"><i class="fa-brands fa-facebook text-terre text-base w-5 mt-[3px]"></i><div><h4 class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce mb-[3px]">Facebook</h4><a href="#" target="_blank" class="text-sm text-encre no-underline">Immo-Business International</a></div></div>
   </div>
   <div class="bg-white border border-ligne px-11 py-12 max-md:px-[26px] max-md:py-9">
     <h3 class="font-serif text-[1.4rem] font-medium text-encre mb-8">Une demande de renseignement</h3>
     <div class="grid grid-cols-2 gap-5 max-md:grid-cols-1">
-      <div><label class="text-[0.72rem] tracking-[1.2px] uppercase text-encre-douce block mb-2">Nom complet</label><input type="text" required class="w-full border-none border-b border-ligne bg-transparent pb-[9px] text-sm text-encre outline-none focus:border-terre transition-colors mb-[26px]"></div>
-      <div><label class="text-[0.72rem] tracking-[1.2px] uppercase text-encre-douce block mb-2">Pays concerné</label>
-        <select required class="w-full border-none border-b border-ligne bg-transparent pb-[9px] text-sm text-encre outline-none focus:border-terre transition-colors mb-[26px]">
-          <option value="" disabled selected>Choisir</option>
-          <option>Cameroun</option><option>Congo</option><option>Gabon</option><option>RCA</option>
-        </select>
+      <div><label class="text-[0.72rem] tracking-[1.2px] uppercase text-encre-douce block mb-2">Nom complet</label>          <input type="text" id="contactNom" name="nom" required class="w-full border-none border-b border-ligne bg-transparent pb-[9px] text-sm text-encre outline-none focus:border-terre transition-colors mb-[26px]"></div>
+          <div><label class="text-[0.72rem] tracking-[1.2px] uppercase text-encre-douce block mb-2">Pays concerné</label>
+            <select id="contactPays" name="pays" required class="w-full border-none border-b border-ligne bg-transparent pb-[9px] text-sm text-encre outline-none focus:border-terre transition-colors mb-[26px]">
+              <option value="" disabled selected>Choisir</option>
+              <option>Cameroun</option><option>Congo</option><option>Gabon</option><option>RCA</option><option>Tchad</option>
+            </select>
       </div>
     </div>
     <div class="grid grid-cols-2 gap-5 max-md:grid-cols-1">
-      <div><label class="text-[0.72rem] tracking-[1.2px] uppercase text-encre-douce block mb-2">Téléphone / WhatsApp</label><input type="tel" required class="w-full border-none border-b border-ligne bg-transparent pb-[9px] text-sm text-encre outline-none focus:border-terre transition-colors mb-[26px]"></div>
-      <div><label class="text-[0.72rem] tracking-[1.2px] uppercase text-encre-douce block mb-2">Email</label><input type="email" class="w-full border-none border-b border-ligne bg-transparent pb-[9px] text-sm text-encre outline-none focus:border-terre transition-colors mb-[26px]"></div>
+      <div><label class="text-[0.72rem] tracking-[1.2px] uppercase text-encre-douce block mb-2">Téléphone / WhatsApp</label>          <input type="tel" id="contactTel" name="telephone" required class="w-full border-none border-b border-ligne bg-transparent pb-[9px] text-sm text-encre outline-none focus:border-terre transition-colors mb-[26px]"></div>
+          <div><label class="text-[0.72rem] tracking-[1.2px] uppercase text-encre-douce block mb-2">Email</label><input type="email" id="contactEmail" name="email" class="w-full border-none border-b border-ligne bg-transparent pb-[9px] text-sm text-encre outline-none focus:border-terre transition-colors mb-[26px]"></div>
     </div>
     <label class="text-[0.72rem] tracking-[1.2px] uppercase text-encre-douce block mb-2">Nature de la demande</label>
-    <select required class="w-full border-none border-b border-ligne bg-transparent pb-[9px] text-sm text-encre outline-none focus:border-terre transition-colors mb-[26px]">
+    <select id="contactNature" name="nature" required class="w-full border-none border-b border-ligne bg-transparent pb-[9px] text-sm text-encre outline-none focus:border-terre transition-colors mb-[26px]">
       <option value="" disabled selected>Choisir</option>
       <option>Acheter une maison ou une villa</option>
       <option>Acheter un terrain</option>
@@ -266,8 +265,8 @@ tailwind.config = {
       <option>Autre renseignement</option>
     </select>
     <label class="text-[0.72rem] tracking-[1.2px] uppercase text-encre-douce block mb-2">Votre projet en quelques mots</label>
-    <textarea placeholder="Ville, budget, type de bien recherché..." class="w-full border-none border-b border-ligne bg-transparent pb-[9px] text-sm text-encre outline-none focus:border-terre transition-colors resize-y min-h-[80px] mb-[26px]"></textarea>
-    <button type="button" onclick="alert('Merci. Votre demande a bien été transmise — notre correspondant local vous répond sous 24h.')" class="btn-action bg-encre text-sable border-none px-[38px] py-3.5 text-sm tracking-[.6px] cursor-pointer inline-flex items-center gap-2.5 hover:bg-terre-fonce">
+    <textarea id="contactMessage" name="message" placeholder="Ville, budget, type de bien recherché..." class="w-full border-none border-b border-ligne bg-transparent pb-[9px] text-sm text-encre outline-none focus:border-terre transition-colors resize-y min-h-[80px] mb-[26px]"></textarea>
+    <button type="button" id="contactSubmitBtn" onclick="alert('Merci. Votre demande a bien été transmise — notre correspondant local vous répond sous 24h.')" class="btn-action bg-encre text-sable border-none px-[38px] py-3.5 text-sm tracking-[.6px] cursor-pointer inline-flex items-center gap-2.5 hover:bg-terre-fonce">
       Envoyer ma demande <i class="fa-solid fa-arrow-right"></i>
     </button>
   </div>
@@ -313,7 +312,7 @@ tailwind.config = {
 </div>
 
 <!-- ===== WHATSAPP FLOAT ===== -->
-<a href="https://wa.me/" target="_blank" class="wa-float fixed bottom-6 right-6 bg-vert-bouteille text-sable w-[52px] h-[52px] rounded-full flex items-center justify-center text-[1.35rem] z-[300] shadow-[0_6px_18px_rgba(0,0,0,0.25)] hover:bg-[#243329]" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+<a href="https://wa.me/23675298984" target="_blank" class="wa-float fixed bottom-6 right-6 bg-vert-bouteille text-sable w-[52px] h-[52px] rounded-full flex items-center justify-center text-[1.35rem] z-[300] shadow-[0_6px_18px_rgba(0,0,0,0.25)] hover:bg-[#243329]" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
 
 <!-- ===== SCRIPTS ===== -->
 <script src="js/main.js"></script>

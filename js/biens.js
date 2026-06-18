@@ -473,17 +473,9 @@
   }
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      var overlay = document.getElementById('detailModalOverlay');
-      if (overlay && overlay.style.display === 'flex') {
-        closeDetailModal();
-      }
-    }
-  });
-
-  document.addEventListener('keydown', function (e) {
     var overlay = document.getElementById('detailModalOverlay');
     if (!overlay || overlay.style.display !== 'flex') return;
+    if (e.key === 'Escape') { closeDetailModal(); }
     if (e.key === 'ArrowLeft') { carouselPrev(); e.preventDefault(); }
     if (e.key === 'ArrowRight') { carouselNext(); e.preventDefault(); }
   });

@@ -38,8 +38,6 @@
   window.logout = logout;
 
   // Empty function referenced by onchange in the select
-  window.updateFlag = function () {};
-
   /* ── SALUTATION SELON L'HEURE ── */
   function setGreeting() {
     var el = document.getElementById('adminGreeting');
@@ -107,6 +105,10 @@
       return matchQ && matchType && matchPays;
     });
   }
+
+  window.renderTable = renderTable;
+  window.renderStats = renderStats;
+  window.showToast = showToast;
 
   function renderStats() {
     var el = function (id) { return document.getElementById(id); };
