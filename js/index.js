@@ -147,6 +147,82 @@
     }
   }
 
+  /* ── VALIDATION FORMULAIRE DE CONTACT ── */
+  // Nettoyage d'erreur en temps réel
+  document.querySelectorAll('#contactNom, #contactPays, #contactTel, #contactEmail, #contactNature, #contactMessage').forEach(function (el) {
+    el.addEventListener('input', function () {
+      this.classList.remove('input-error');
+      var errEl = document.getElementById('err-' + this.id);
+      if (errEl) {
+        errEl.classList.remove('visible');
+        errEl.textContent = '';
+      }
+    });
+    // Selects utilisent 'change' au lieu de 'input'
+    if (el.tagName === 'SELECT') {
+      el.addEventListener('change', function () {
+        this.classList.remove('input-error');
+        var errEl = document.getElementById('err-' + this.id);
+        if (errEl) {
+          errEl.classList.remove('visible');
+          errEl.textContent = '';
+        }
+      });
+    }
+  });
+
+  window.submitContactForm = function () {
+    // Nettoyer les erreurs précédentes
+    document.querySelectorAll('.field-err').forEach(function (el) {
+      el.classList.remove('visible');
+      el.textContent = '';
+    });
+    document.querySelectorAll('.input-error').forEach(function (el) {
+      el.classList.remove('input-error');
+    });
+
+    var fields = [
+      { id: 'contactNom', err: 'err-contactNom', msg: 'Veuillez entrer votre nom.', validate: function (v) { return v.trim().length > 0; } },
+      { id: 'contactPays', err: 'err-contactPays', msg: 'Veuillez sélectionner un pays.', validate: function (v) { return v !== '' && v !== 'Choisir'; } },
+      { id: 'contactTel', err: 'err-contactTel', msg: 'Veuillez entrer un numéro de téléphone.', validate: function (v) { return v.trim().length >= 6; } },
+      { id: 'contactEmail', err: 'err-contactEmail', msg: 'Veuillez entrer un email valide.', validate: function (v) {
+        if (!v.trim()) return true; // optionnel
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+      } },
+      { id: 'contactNature', err: 'err-contactNature', msg: 'Veuillez choisir une nature de demande.', validate: function (v) { return v !== '' && v !== 'Choisir'; } },
+      { id: 'contactMessage', err: 'err-contactMessage', msg: 'Veuillez décrire votre projet.', validate: function (v) { return v.trim().length > 0; } },
+    ];
+
+    var hasError = false;
+
+    fields.forEach(function (f) {
+      var el = document.getElementById(f.id);
+      var errEl = document.getElementById(f.err);
+      if (!el || !errEl) return;
+
+      var val = el.value || '';
+      if (!f.validate(val)) {
+        errEl.textContent = f.msg;
+        errEl.classList.add('visible');
+        el.classList.add('input-error');
+        hasError = true;
+      }
+    });
+
+    if (hasError) return;
+
+    // Succès
+    var formWrap = document.querySelector('.bg-white.border.border-ligne');
+    var formContent = formWrap ? formWrap.innerHTML : '';
+    if (formWrap) {
+      formWrap.innerHTML = '<div class="form-success visible">' +
+        '<div class="check-icon"><i class="fa-solid fa-check"></i></div>' +
+        '<h3 class="font-serif text-[1.3rem] font-medium text-encre mb-2">Merci pour votre demande</h3>' +
+        '<p class="text-sm text-encre-douce">Votre message a bien été transmis. Notre correspondant local vous répondra sous 24 h.</p>' +
+        '</div>';
+    }
+  };
+
   /* ── MARQUEE PAYS : vitesse adaptative ── */
   (function () {
     var track = document.querySelector('.pays-marquee-track');

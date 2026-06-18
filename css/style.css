@@ -288,4 +288,48 @@ nav a.actif::after {
   transition: transform .5s ease;
 }
 
+/* --- Validation formulaire --- */
+.field-err {
+  display: block;
+  color: #B94040;
+  font-size: 0.78rem;
+  margin-top: 4px;
+  min-height: 1.2em;
+  line-height: 1.3;
+  transition: opacity 0.2s ease;
+  opacity: 0;
+}
+.field-err.visible {
+  opacity: 1;
+}
+.input-error {
+  border-color: #B94040 !important;
+}
+.input-error:focus {
+  border-color: #B94040 !important;
+  box-shadow: 0 0 0 2px rgba(185, 64, 64, 0.15);
+}
+
+/* --- Message de succès formulaire --- */
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 32px 20px;
+}
+.form-success.visible {
+  display: block;
+}
+.form-success .check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #2D6A4F;
+  color: #FBF9F4;
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+}
+
 /* Presse-papier texture for inline SVG (in body::before) */
