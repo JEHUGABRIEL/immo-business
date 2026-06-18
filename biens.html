@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tous nos biens — Immo-Business International</title>
+<meta name="description" content="Toutes les maisons, villas, appartements et terrains disponibles au Cameroun, au Congo, au Gabon et en République Centrafricaine.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        encre: '#1C1B19',
+        'encre-douce': '#42413D',
+        sable: '#FBF9F4',
+        'sable-fonce': '#F2EDE2',
+        terre: '#A8693E',
+        'terre-fonce': '#7C4B2A',
+        'vert-bouteille': '#33483B',
+        ligne: '#DFD9C9',
+      },
+      fontFamily: {
+        serif: ['Playfair Display', 'Georgia', 'serif'],
+        sans: ['Inter', '-apple-system', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/biens.css">
+</head>
+<body class="page-transition font-sans text-encre-douce bg-sable leading-relaxed antialiased">
+
+<!-- ===== TOPBAR ===== -->
+<div class="bg-encre px-8 py-[9px] max-md:hidden">
+  <div class="max-w-[1240px] mx-auto flex items-center justify-between">
+    <div class="flex gap-7 text-[0.78rem] text-white/55 tracking-[.3px]">
+      <span class="inline-flex items-center gap-[7px]"><i class="fa-solid fa-envelope" aria-hidden="true"></i> contact@immobusiness-intl.com</span>
+      <span class="inline-flex items-center gap-[7px]"><i class="fa-solid fa-earth-africa" aria-hidden="true"></i> Cameroun · Congo · Gabon · RCA</span>
+    </div>
+    <div class="flex gap-[18px]">
+      <a href="#" class="text-white/50 text-sm hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#" class="text-white/50 text-sm hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="text-white/50 text-sm hover:text-white transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="bg-sable border-b border-ligne sticky top-0 z-200">
+  <div class="max-w-[1240px] mx-auto flex items-center justify-between px-8 py-[22px] relative">
+    <a href="index.html" class="flex flex-col no-underline">
+      <span class="font-serif text-[1.5rem] font-semibold text-encre leading-none tracking-[0.5px]">Immo-Business</span>
+      <span class="text-[0.62rem] tracking-[3px] uppercase text-terre mt-[5px] font-medium">International · Depuis l'Afrique Centrale</span>
+    </a>
+    <button class="menu-toggle md:hidden bg-none border-none text-encre text-[1.4rem] cursor-pointer" id="menuToggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    <nav id="navMenu" class="flex gap-[38px] text-sm">
+      <a href="index.html#services" class="text-encre-douce no-underline relative pb-1 hover:text-encre transition-colors">Services</a>
+      <a href="biens.html" class="actif text-encre font-semibold no-underline relative pb-1">Biens</a>
+      <a href="index.html#apropos" class="text-encre-douce no-underline relative pb-1 hover:text-encre transition-colors">Histoire</a>
+      <a href="index.html#temoignages" class="text-encre-douce no-underline relative pb-1 hover:text-encre transition-colors">Témoignages</a>
+      <a href="index.html#contact" class="btn-action btn-ligne border border-encre text-encre px-6 py-2.5 text-sm tracking-[.5px] no-underline hover:bg-encre hover:text-sable">Nous écrire</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<div class="relative h-[50vh] min-h-[380px] bg-encre flex items-center overflow-hidden">
+  <!-- Image de fond -->
+  <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80');"></div>
+  <!-- Overlay gradient -->
+  <div class="absolute inset-0 bg-gradient-to-r from-encre/90 via-encre/60 to-transparent"></div>
+  <!-- Contenu -->
+  <div class="relative z-10 max-w-[1240px] mx-auto px-8 w-full">
+    <div class="max-w-[640px]">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-[34px] h-px bg-terre"></div>
+        <span class="text-[0.78rem] tracking-[2.5px] uppercase text-terre font-semibold">Notre portefeuille</span>
+      </div>
+      <h1 class="font-serif text-[2.8rem] max-md:text-[2rem] font-medium text-sable leading-tight">Tous nos biens, à travers l'Afrique Centrale</h1>
+      <p class="text-base text-sable/70 max-w-[520px] mt-5 leading-relaxed">Maisons, villas, appartements et terrains, vérifiés sur le terrain par nos correspondants au Cameroun, au Congo, au Gabon et en République Centrafricaine.</p>
+      <!-- Stats rapides -->
+      <div class="flex gap-10 mt-10 pt-6 border-t border-white/15">
+        <div>
+          <strong class="block font-serif text-[1.6rem] font-medium text-sable">12</strong>
+          <span class="text-[0.72rem] text-sable/55 tracking-[.5px]">Biens disponibles</span>
+        </div>
+        <div>
+          <strong class="block font-serif text-[1.6rem] font-medium text-sable">4</strong>
+          <span class="text-[0.72rem] text-sable/55 tracking-[.5px]">Pays couverts</span>
+        </div>
+        <div>
+          <strong class="block font-serif text-[1.6rem] font-medium text-sable">6</strong>
+          <span class="text-[0.72rem] text-sable/55 tracking-[.5px]">Villes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FILTRES ===== -->
+<div class="max-w-[1240px] mx-auto px-8 pb-8 max-md:px-6">
+  <div class="flex gap-3.5 flex-wrap border-b border-ligne pb-8" id="filtresBar">
+    <div class="filtre-chip actif" data-pays="tous">Tous les pays</div>
+    <div class="filtre-chip" data-pays="cameroun">🇨🇲 Cameroun</div>
+    <div class="filtre-chip" data-pays="congo">🇨🇬 Congo</div>
+    <div class="filtre-chip" data-pays="gabon">🇬🇦 Gabon</div>
+    <div class="filtre-chip" data-pays="rca">🇨🇫 RCA</div>
+  </div>
+  <!-- Tri -->
+  <div class="flex items-center gap-3 pt-5">
+    <span class="text-[0.72rem] tracking-[2px] uppercase text-terre font-semibold">Trier par</span>
+    <button class="sort-chip actif" data-sort="date">📅 Plus récents</button>
+    <button class="sort-chip" data-sort="popularite">🔥 Les plus vus</button>
+  </div>
+</div>
+
+<!-- ===== GRID BIENS ===== -->
+<div class="biens-grid-page max-w-[1240px] mx-auto px-8 py-14 pb-[110px] grid grid-cols-3 gap-9 max-md:px-6" id="biensGridPage"></div>
+
+<!-- ===== CTA ===== -->
+<div class="bg-encre text-sable">
+  <div class="max-w-[1240px] mx-auto px-8 py-20 text-center">
+    <h2 class="font-serif text-[1.9rem] font-medium mb-[18px]">Vous ne trouvez pas ce que vous cherchez ?</h2>
+    <p class="text-sm text-sable/65 max-w-[480px] mx-auto mb-8">Décrivez-nous votre projet — nos correspondants locaux vous proposent des biens qui ne sont pas encore en ligne.</p>
+    <a href="index.html#contact" class="btn-action btn-pleine-claire no-underline">Nous écrire <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div class="bg-encre text-white/60">
+  <div class="max-w-[1240px] mx-auto px-8 pt-[72px] pb-9 grid grid-cols-[1.6fr_1fr_1fr_1fr] gap-12 max-lg:grid-cols-2 max-md:grid-cols-1">
+    <div>
+      <span class="font-serif text-[1.5rem] font-semibold text-sable leading-none tracking-[0.5px]">Immo-Business</span>
+      <p class="text-sm mt-[18px] leading-relaxed max-w-[280px] text-white/50">Maisons, villas et terrains au Cameroun, au Congo, au Gabon et en République Centrafricaine. Une présence sur le terrain, dans chaque pays.</p>
+    </div>
+    <div>
+      <h4 class="text-[0.7rem] tracking-[2px] uppercase text-terre mb-[18px] font-semibold">Services</h4>
+      <ul class="list-none">
+        <li class="mb-[11px]"><a href="index.html#services" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Achat immobilier</a></li>
+        <li class="mb-[11px]"><a href="index.html#services" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Vente de terrains</a></li>
+        <li class="mb-[11px]"><a href="index.html#services" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Mise en relation</a></li>
+        <li class="mb-[11px]"><a href="index.html#services" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Diaspora</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-[0.7rem] tracking-[2px] uppercase text-terre mb-[18px] font-semibold">Pays</h4>
+      <ul class="list-none">
+        <li class="mb-[11px]"><a href="biens.html" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Cameroun</a></li>
+        <li class="mb-[11px]"><a href="biens.html" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Congo</a></li>
+        <li class="mb-[11px]"><a href="biens.html" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Gabon</a></li>
+        <li class="mb-[11px]"><a href="biens.html" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">RCA</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-[0.7rem] tracking-[2px] uppercase text-terre mb-[18px] font-semibold">Contact</h4>
+      <ul class="list-none">
+        <li class="mb-[11px]"><a href="mailto:contact@immobusiness-intl.com" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Email</a></li>
+        <li class="mb-[11px]"><a href="#" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">WhatsApp</a></li>
+        <li class="mb-[11px]"><a href="#" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Facebook</a></li>
+        <li class="mb-[11px]"><a href="#" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom px-8 py-[22px] text-center text-[0.78rem] text-white/35">&copy; 2026 Immo-Business International — <em class="text-terre not-italic">tous droits réservés</em></div>
+</div>
+
+<!-- ===== WHATSAPP FLOAT ===== -->
+<a href="https://wa.me/" target="_blank" class="wa-float fixed bottom-6 right-6 bg-vert-bouteille text-sable w-[52px] h-[52px] rounded-full flex items-center justify-center text-[1.35rem] z-[300] shadow-[0_6px_18px_rgba(0,0,0,0.25)] hover:bg-[#243329]" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+<!-- ===== MODALE DE DÉTAILS ===== -->
+<div id="detailModalOverlay" class="fixed inset-0 bg-encre/70 z-[400] hidden items-center justify-center p-4 md:p-8" onclick="if(event.target===this)closeDetailModal()">
+  <div class="bg-sable w-full max-w-4xl max-h-[90vh] overflow-y-auto relative animate-fade-in" style="box-shadow:0 32px 64px rgba(0,0,0,0.3);">
+    <!-- Close -->
+    <button onclick="closeDetailModal()" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/90 text-encre text-lg flex items-center justify-center hover:bg-white transition-all shadow-md"><i class="fa-solid fa-xmark"></i></button>
+
+    <!-- Carrousel d'images -->
+    <div class="relative h-[320px] md:h-[420px] bg-encre-douce overflow-hidden group">
+      <!-- Track des images (crossfade) -->
+      <div id="modalCarouselTrack" class="relative w-full h-full"></div>
+
+      <!-- Overlay gradient bas -->
+      <div class="absolute inset-0 bg-gradient-to-t from-encre/70 via-transparent to-transparent pointer-events-none"></div>
+
+      <!-- Badge type -->
+      <div class="absolute bottom-6 left-6 right-6 z-10 pointer-events-none">
+        <span id="modalDetailBadge" class="inline-block px-4 py-1.5 text-[0.7rem] tracking-wider uppercase font-semibold"></span>
+      </div>
+
+      <!-- Flèche gauche -->
+      <button onclick="event.stopPropagation(); carouselPrev()" class="carousel-arrow carousel-arrow-left absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/80 text-encre flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-white transition-all shadow-md cursor-pointer border-none">
+        <i class="fa-solid fa-chevron-left text-sm"></i>
+      </button>
+
+      <!-- Flèche droite -->
+      <button onclick="event.stopPropagation(); carouselNext()" class="carousel-arrow carousel-arrow-right absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/80 text-encre flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-white transition-all shadow-md cursor-pointer border-none">
+        <i class="fa-solid fa-chevron-right text-sm"></i>
+      </button>
+
+      <!-- Dots -->
+      <div id="modalCarouselDots" class="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex gap-2 pointer-events-none"></div>
+
+      <!-- Compteur -->
+      <div id="modalCarouselCounter" class="absolute top-4 right-4 z-20 bg-encre/60 text-sable text-[0.72rem] px-3 py-1 rounded-full pointer-events-none"></div>
+    </div>
+
+    <!-- Contenu -->
+    <div class="px-8 py-8 md:px-10 md:py-9">
+      <div class="flex flex-wrap items-start justify-between gap-4 mb-6">
+        <div class="flex-1 min-w-0">
+          <div id="modalDetailFlag" class="text-[0.78rem] tracking-wide uppercase text-terre-fonce font-semibold flex items-center gap-1.5 mb-1.5"></div>
+          <h2 id="modalDetailTitre" class="font-serif text-[1.7rem] font-medium text-encre leading-tight"></h2>
+          <p id="modalDetailLoc" class="text-sm text-encre-douce/70 mt-1"></p>
+        </div>
+        <div class="text-right shrink-0">
+          <div id="modalDetailPrix" class="font-serif text-[1.6rem] font-medium text-encre leading-none"></div>
+          <div id="modalDetailUnite" class="text-[0.78rem] text-encre-douce/60 mt-1"></div>
+        </div>
+      </div>
+
+      <!-- Détails -->
+      <div id="modalDetailDets" class="flex flex-wrap gap-3 mb-8"></div>
+
+      <!-- Séparateur -->
+      <div class="border-t border-ligne pt-6">
+        <p class="text-sm text-encre-douce/70 mb-5">Intéressé par ce bien ? Contactez-nous directement.</p>
+        <div class="flex gap-3 flex-wrap">
+          <a id="modalDetailWhatsApp" href="#" target="_blank" class="btn-action flex-1 min-w-[160px] bg-[#25D366] text-white py-3 px-6 rounded font-semibold text-sm no-underline inline-flex items-center justify-center gap-2 hover:bg-[#1ebe5a]">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+          <a href="mailto:contact@immobusiness-intl.com" class="btn-action flex-1 min-w-[160px] bg-encre text-sable py-3 px-6 rounded font-semibold text-sm no-underline inline-flex items-center justify-center gap-2 hover:bg-terre-fonce">
+            <i class="fa-solid fa-envelope"></i> Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="js/main.js"></script>
+<script src="js/biens.js"></script>
+</body>
+</html>

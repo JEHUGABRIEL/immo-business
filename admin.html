@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Immo-Business International</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        encre: '#1C1B19',
+        'encre-douce': '#42413D',
+        sable: '#FBF9F4',
+        'sable-fonce': '#F2EDE2',
+        terre: '#A8693E',
+        'terre-fonce': '#7C4B2A',
+        'vert-bouteille': '#33483B',
+        ligne: '#DFD9C9',
+        erreur: '#B94040',
+        succes: '#2D6A4F',
+      },
+      fontFamily: {
+        serif: ['Playfair Display', 'Georgia', 'serif'],
+        sans: ['Inter', '-apple-system', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="font-sans text-encre-douce bg-sable-fonce leading-relaxed antialiased min-h-screen">
+
+<!-- ===== LOGIN ===== -->
+<div id="loginScreen">
+  <div class="login-box">
+    <div class="font-serif text-[1.4rem] font-semibold text-encre mb-1.5">Immo-Business</div>
+    <div class="text-[0.72rem] tracking-[2.5px] uppercase text-terre mb-10">Administration</div>
+    <label for="loginUser" class="block text-[0.74rem] tracking-[1.5px] uppercase text-encre-douce mb-2 font-semibold">Identifiant</label>
+    <input type="text" id="loginUser" placeholder="admin" autocomplete="username" class="w-full border border-ligne bg-white px-3.5 py-3 text-sm text-encre mb-5 outline-none focus:border-terre transition-colors">
+    <label for="loginPass" class="block text-[0.74rem] tracking-[1.5px] uppercase text-encre-douce mb-2 font-semibold">Mot de passe</label>
+    <input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password" class="w-full border border-ligne bg-white px-3.5 py-3 text-sm text-encre mb-5 outline-none focus:border-terre transition-colors">
+    <button class="login-btn w-full bg-encre text-sable py-3.5 text-sm tracking-[.5px] border-none hover:bg-terre-fonce transition-colors mt-1" onclick="tryLogin()">Accéder au tableau de bord</button>
+    <div class="login-err text-[0.82rem] text-erreur mt-3 hidden" id="loginErr">Identifiants incorrects.</div>
+  </div>
+</div>
+
+<!-- ===== APP ===== -->
+<div id="app" class="hidden min-h-screen">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="px-7 pt-[30px] pb-6 border-b border-white/10">
+      <div class="font-serif text-[1.2rem] font-semibold text-sable leading-none">Immo-Business</div>
+      <div class="text-[0.6rem] tracking-[2.5px] uppercase text-terre mt-[5px]">International · Admin</div>
+    </div>
+    <nav class="py-7 flex-1">
+      <div class="text-[0.62rem] tracking-[2.5px] uppercase text-white/30 px-7 mb-2.5">Gestion</div>
+      <a href="#" class="sb-link actif"><i class="fa-solid fa-building"></i> Biens immobiliers</a>
+      <div class="text-[0.62rem] tracking-[2.5px] uppercase text-white/30 px-7 mb-2.5 mt-7">Accès rapide</div>
+      <a href="index.html" target="_blank" class="sb-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Voir le site</a>
+      <a href="biens.html" target="_blank" class="sb-link"><i class="fa-solid fa-list"></i> Page biens</a>
+    </nav>
+    <div class="px-7 py-5 border-t border-white/8">
+      <button class="sb-logout flex items-center gap-2.5 text-[0.82rem] text-white/40 cursor-pointer hover:text-white/80 transition-colors bg-none border-none w-full" onclick="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i> Déconnexion
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main ml-[248px] min-h-screen">
+    <div class="bg-sable border-b border-ligne px-9 py-[18px] flex items-center justify-between">
+      <h1 class="font-serif text-[1.35rem] font-medium text-encre">Biens immobiliers</h1>
+      <div class="flex items-center gap-5 text-[0.82rem] text-encre-douce">
+        <span>Connecté en tant que <strong>admin</strong></span>
+      </div>
+    </div>
+
+    <div class="px-9 py-10">
+
+      <!-- STATS -->
+      <div class="grid grid-cols-4 gap-5 mb-11 max-lg:grid-cols-2 max-sm:grid-cols-1">
+        <div class="stat-card bg-white border border-ligne px-[26px] py-6">
+          <div class="text-[0.72rem] tracking-[1.8px] uppercase text-encre-douce mb-2.5 font-semibold">Total biens</div>
+          <div class="font-serif text-[2rem] font-medium text-encre leading-none" id="statTotal">0</div>
+          <div class="text-[0.78rem] text-terre-fonce mt-1.5">dans le portefeuille</div>
+        </div>
+        <div class="stat-card bg-white border border-ligne px-[26px] py-6">
+          <div class="text-[0.72rem] tracking-[1.8px] uppercase text-encre-douce mb-2.5 font-semibold">À vendre</div>
+          <div class="font-serif text-[2rem] font-medium text-encre leading-none" id="statVendre">0</div>
+          <div class="text-[0.78rem] text-terre-fonce mt-1.5">propriétés</div>
+        </div>
+        <div class="stat-card bg-white border border-ligne px-[26px] py-6">
+          <div class="text-[0.72rem] tracking-[1.8px] uppercase text-encre-douce mb-2.5 font-semibold">À louer</div>
+          <div class="font-serif text-[2rem] font-medium text-encre leading-none" id="statLouer">0</div>
+          <div class="text-[0.78rem] text-terre-fonce mt-1.5">biens disponibles</div>
+        </div>
+        <div class="stat-card bg-white border border-ligne px-[26px] py-6">
+          <div class="text-[0.72rem] tracking-[1.8px] uppercase text-encre-douce mb-2.5 font-semibold">Pays couverts</div>
+          <div class="font-serif text-[2rem] font-medium text-encre leading-none">4</div>
+          <div class="text-[0.78rem] text-terre-fonce mt-1.5">Cameroun · Congo · Gabon · RCA</div>
+        </div>
+      </div>
+
+      <!-- TOOLBAR -->
+      <div class="flex items-center justify-between mb-7 gap-4 flex-wrap">
+        <div class="flex items-center gap-3">
+          <div class="search-wrap relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-encre-douce text-[0.8rem]"></i>
+            <input type="text" id="searchInput" placeholder="Rechercher un bien…" oninput="renderTable()" class="border border-ligne bg-white py-2.5 pl-[38px] pr-3.5 text-sm text-encre w-[260px] outline-none focus:border-terre transition-colors">
+          </div>
+          <select id="filtreType" onchange="renderTable()" class="border border-ligne bg-white py-2.5 px-3.5 text-sm text-encre outline-none cursor-pointer">
+            <option value="tous">Tous les types</option>
+            <option value="À vendre">À vendre</option>
+            <option value="À louer">À louer</option>
+          </select>
+          <select id="filtrePays" onchange="renderTable()" class="border border-ligne bg-white py-2.5 px-3.5 text-sm text-encre outline-none cursor-pointer">
+            <option value="tous">Tous les pays</option>
+            <option value="cameroun">🇨🇲 Cameroun</option>
+            <option value="congo">🇨🇬 Congo</option>
+            <option value="gabon">🇬🇦 Gabon</option>
+            <option value="rca">🇨🇫 RCA</option>
+          </select>
+        </div>
+        <button class="btn-primaire bg-encre text-sable py-[11px] px-[22px] text-sm tracking-[.4px] border-none inline-flex items-center gap-2 hover:bg-terre-fonce transition-colors cursor-pointer" onclick="openModal()">
+          <i class="fa-solid fa-plus"></i> Ajouter un bien
+        </button>
+      </div>
+
+      <!-- TABLE -->
+      <div class="table-wrap bg-white border border-ligne overflow-hidden">
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="border-b border-ligne bg-sable-fonce">
+              <th class="text-[0.7rem] tracking-[1.8px] uppercase text-encre-douce px-[18px] py-3.5 text-left font-semibold whitespace-nowrap">Photo</th>
+              <th class="sortable text-[0.7rem] tracking-[1.8px] uppercase text-encre-douce px-[18px] py-3.5 text-left font-semibold whitespace-nowrap cursor-pointer select-none hover:text-encre" onclick="sortBy('titre')">Titre <i class="fa-solid fa-sort" style="opacity:.4;font-size:.7rem;"></i></th>
+              <th class="sortable text-[0.7rem] tracking-[1.8px] uppercase text-encre-douce px-[18px] py-3.5 text-left font-semibold whitespace-nowrap cursor-pointer select-none hover:text-encre" onclick="sortBy('loc')">Localisation <i class="fa-solid fa-sort" style="opacity:.4;font-size:.7rem;"></i></th>
+              <th class="text-[0.7rem] tracking-[1.8px] uppercase text-encre-douce px-[18px] py-3.5 text-left font-semibold whitespace-nowrap">Type</th>
+              <th class="sortable text-[0.7rem] tracking-[1.8px] uppercase text-encre-douce px-[18px] py-3.5 text-left font-semibold whitespace-nowrap cursor-pointer select-none hover:text-encre" onclick="sortBy('pays')">Pays <i class="fa-solid fa-sort" style="opacity:.4;font-size:.7rem;"></i></th>
+              <th class="sortable text-[0.7rem] tracking-[1.8px] uppercase text-encre-douce px-[18px] py-3.5 text-left font-semibold whitespace-nowrap cursor-pointer select-none hover:text-encre" onclick="sortBy('prix')">Prix <i class="fa-solid fa-sort" style="opacity:.4;font-size:.7rem;"></i></th>
+              <th class="text-[0.7rem] tracking-[1.8px] uppercase text-encre-douce px-[18px] py-3.5 text-left font-semibold whitespace-nowrap">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL AJOUT/ÉDITION ===== -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="modalTitle" class="font-serif text-[1.25rem] font-medium text-encre">Ajouter un bien</h2>
+      <button class="modal-close bg-none border-none text-[1.1rem] text-encre-douce cursor-pointer px-2 py-1 hover:text-encre transition-colors" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="form-group full">
+          <label class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce font-semibold">Titre du bien</label>
+          <input type="text" id="fTitre" placeholder="Villa moderne avec jardin" class="border border-ligne bg-white px-3.5 py-[11px] text-sm text-encre outline-none focus:border-terre transition-colors w-full">
+        </div>
+        <div class="form-group">
+          <label class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce font-semibold">Pays</label>
+          <select id="fPays" onchange="updateFlag()" class="border border-ligne bg-white px-3.5 py-[11px] text-sm text-encre outline-none focus:border-terre transition-colors w-full">
+            <option value="cameroun">🇨🇲 Cameroun</option>
+            <option value="congo">🇨🇬 Congo</option>
+            <option value="gabon">🇬🇦 Gabon</option>
+            <option value="rca">🇨🇫 RCA</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce font-semibold">Localisation</label>
+          <input type="text" id="fLoc" placeholder="Bastos, Yaoundé" class="border border-ligne bg-white px-3.5 py-[11px] text-sm text-encre outline-none focus:border-terre transition-colors w-full">
+        </div>
+        <div class="form-group">
+          <label class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce font-semibold">Type</label>
+          <select id="fType" class="border border-ligne bg-white px-3.5 py-[11px] text-sm text-encre outline-none focus:border-terre transition-colors w-full">
+            <option value="À vendre">À vendre</option>
+            <option value="À louer">À louer</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce font-semibold">Prix</label>
+          <input type="text" id="fPrix" placeholder="85 000 000" class="border border-ligne bg-white px-3.5 py-[11px] text-sm text-encre outline-none focus:border-terre transition-colors w-full">
+        </div>
+        <div class="form-group">
+          <label class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce font-semibold">Unité</label>
+          <select id="fUnite" class="border border-ligne bg-white px-3.5 py-[11px] text-sm text-encre outline-none focus:border-terre transition-colors w-full">
+            <option value="FCFA">FCFA (vente)</option>
+            <option value="FCFA / mois">FCFA / mois (location)</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce font-semibold">URL de l'image</label>
+          <input type="url" id="fImg" placeholder="https://…" oninput="previewImg()" class="border border-ligne bg-white px-3.5 py-[11px] text-sm text-encre outline-none focus:border-terre transition-colors w-full">
+          <span class="text-[0.76rem] text-encre-douce/70">Unsplash, votre CDN, ou lien direct vers l'image</span>
+          <div class="mt-2">
+            <div class="img-placeholder" id="imgPlaceholder"><i class="fa-regular fa-image"></i>&nbsp; Aperçu de l'image</div>
+            <img id="imgPreview" class="img-preview" alt="Aperçu">
+          </div>
+        </div>
+        <div class="form-group full">
+          <label class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce font-semibold">Détails (chambres, surface…)</label>
+          <div id="detContainer"></div>
+          <button class="btn-det-add" type="button" onclick="addDet()"><i class="fa-solid fa-plus"></i> Ajouter un détail</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-secondaire" onclick="closeModal()">Annuler</button>
+      <button class="btn-primaire bg-encre text-sable py-[11px] px-[22px] text-sm tracking-[.4px] border-none inline-flex items-center gap-2 hover:bg-terre-fonce transition-colors cursor-pointer" onclick="saveBien()"><i class="fa-solid fa-check"></i> Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONFIRM SUPPRESSION ===== -->
+<div class="confirm-bg" id="confirmBg">
+  <div class="confirm-box">
+    <h3 class="font-serif text-[1.1rem] text-encre mb-3">Supprimer ce bien ?</h3>
+    <p class="text-sm text-encre-douce mb-7 leading-relaxed">Cette action est irréversible. Le bien sera retiré du portefeuille et n'apparaîtra plus sur le site.</p>
+    <div class="flex gap-3 justify-end">
+      <button class="btn-secondaire" onclick="closeConfirm()">Annuler</button>
+      <button class="btn-danger" onclick="confirmDelete()">Supprimer</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast"></div>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="js/main.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

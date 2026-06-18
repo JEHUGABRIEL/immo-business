@@ -1,0 +1,128 @@
+/* ===== INDEX – Styles spécifiques ===== */
+
+/* -- HERO -- */
+.hero-text-col h1 {
+  max-width: 560px;
+}
+.hero-stats-row {
+  border-top: 1px solid #DFD9C9;
+}
+
+/* -- SERVICES : liste éditoriale -- */
+.svc-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 1.4fr;
+  gap: 32px;
+  padding: 34px 0;
+  border-bottom: 1px solid #DFD9C9;
+  align-items: start;
+  transition: background .25s;
+}
+.svc-row:hover {
+  background: rgba(168, 105, 62, 0.04);
+}
+.svc-num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1rem;
+  color: #A8693E;
+  font-style: italic;
+}
+
+/* -- MOSAÏQUE BIENS (défilement infini) -- */
+.biens-mosaic-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.biens-mosaic-track {
+  display: flex;
+  transition: transform .9s cubic-bezier(.65, 0, .35, 1);
+}
+.bien-tile {
+  position: relative;
+  overflow: hidden;
+  background: #1C1B19;
+}
+.bien-tile.grande img {
+  height: 632px;
+}
+.biens-col-stack .bien-tile img {
+  height: 208px;
+}
+.bien-tile img {
+  width: 100%;
+  object-fit: cover;
+}
+.bien-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 22px 24px;
+  z-index: 2;
+}
+.biens-col-stack .bien-overlay {
+  padding: 16px 18px;
+}
+.bien-tile.grande .bien-overlay h3 {
+  font-size: 1.6rem;
+}
+.biens-col-stack .bien-overlay h3 {
+  font-size: 1.02rem;
+}
+.bien-tile.grande .bien-overlay .loc {
+  font-size: 0.86rem;
+  margin-bottom: 8px;
+  opacity: .85;
+}
+
+/* -- APROPOS : image décalée -- */
+.apropos-img-stack .frame-back {
+  position: absolute;
+  top: 24px;
+  left: -24px;
+  right: 24px;
+  bottom: -24px;
+  border: 1px solid rgba(251, 249, 244, 0.25);
+  z-index: -1;
+}
+
+/* -- TEMOIGNAGES : carrousel -- */
+.temo-track {
+  overflow: hidden;
+}
+.temo-inner {
+  display: flex;
+  transition: transform .65s ease;
+}
+.temo-slide {
+  min-width: 100%;
+  padding: 0 20px;
+}
+
+/* -- RESPONSIVE -- */
+@media (max-width: 1000px) {
+  .hero-text-col {
+    padding: 80px 6vw 50px;
+  }
+  .svc-row {
+    grid-template-columns: 40px 1fr;
+  }
+  .svc-row > p {
+    grid-column: 1 / 3;
+  }
+  .apropos-img-stack {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .hero-stats-row {
+    flex-wrap: wrap;
+    gap: 28px;
+  }
+  .bien-tile.grande img {
+    height: 300px;
+  }
+  .bien-tile img {
+    height: 170px;
+  }
+}

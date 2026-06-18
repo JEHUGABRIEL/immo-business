@@ -1,0 +1,191 @@
+/* ===== STYLES COMMUNS — Immo-Business International ===== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- Texture papier discrète (sur body) --- */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+/* --- Navigation responsive (mobile) --- */
+@media (max-width: 700px) {
+  nav#navMenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    padding: 20px 24px;
+    gap: 18px;
+    border-top: 1px solid #DFD9C9;
+    background: #FBF9F4;
+  }
+  nav#navMenu.open {
+    display: flex;
+  }
+  .btn-ligne {
+    display: none;
+  }
+}
+
+/* --- Navigation : trait souligné au hover --- */
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: #A8693E;
+  transition: width .25s;
+}
+nav a:hover::after,
+nav a.actif::after {
+  width: 100%;
+}
+
+/* --- Hero : slides avec fondu --- */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.3s ease;
+}
+.hero-slide.active {
+  opacity: 1;
+}
+
+/* --- Hero & Témo : dot indicators --- */
+.hero-dot,
+.temo-dot-h {
+  transition: background .3s, transform .3s;
+}
+.hero-dot.active {
+  background: #fff;
+  transform: scale(1.4);
+}
+.temo-dot-h.active {
+  background: #A8693E;
+  transform: scale(1.5);
+}
+
+/* --- Mosaïque biens : vignettes hover --- */
+.bien-tile img {
+  transition: transform .6s ease;
+}
+.bien-tile:hover img {
+  transform: scale(1.045);
+}
+.bien-tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(28, 27, 25, 0.78) 100%);
+}
+
+/* --- Cartes biens (page biens.html) : hover image --- */
+.bien-card-full:hover .bien-card-img img {
+  transform: scale(1.06);
+}
+
+/* --- Bouton "Nous écrire" et "Voir +" : hover --- */
+.btn-ligne,
+.btn-voirplus,
+.btn-pleine-claire {
+  transition: all .25s;
+}
+
+/* --- Table admin : hover ligne --- */
+.table-wrap tbody tr:hover td {
+  background: rgba(168, 105, 62, 0.03);
+}
+
+/* --- Footer : séparateur --- */
+.footer-bottom {
+  border-top: 1px solid rgba(251, 249, 244, 0.12);
+}
+
+/* --- Wa float --- */
+.wa-float {
+  transition: background .25s;
+}
+
+/* --- Animations boutons : scale au hover + rebound au click --- */
+.btn-action {
+  transition: all 0.25s ease;
+}
+.btn-action:hover {
+  transform: scale(1.04);
+}
+.btn-action:active {
+  transform: scale(0.96);
+}
+
+/* --- Ripple effect (Material Design) --- */
+.ripple-btn {
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  transform: scale(0);
+  animation: rippleAnim 0.6s ease-out forwards;
+}
+.ripple-dark {
+  background: rgba(28, 27, 25, 0.15);
+}
+@keyframes rippleAnim {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* --- Transitions de page --- */
+.page-transition {
+  opacity: 0;
+  animation: pageFadeIn 0.4s ease forwards;
+}
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-exit {
+  animation: pageFadeOut 0.25s ease forwards;
+  pointer-events: none;
+}
+@keyframes pageFadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-8px); }
+}
+
+/* --- Badge Populaire (pulse lumineux) --- */
+.badge-populaire {
+  animation: badge-pop 2s ease-in-out infinite;
+}
+@keyframes badge-pop {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 160, 23, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(212, 160, 23, 0); }
+}
+
+/* --- Animations diverses --- */
+.bien-card-img img {
+  transition: transform .5s ease;
+}
+
+/* Presse-papier texture for inline SVG (in body::before) */

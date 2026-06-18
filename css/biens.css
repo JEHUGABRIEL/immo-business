@@ -1,0 +1,136 @@
+/* ===== BIENS – Styles spécifiques ===== */
+
+/* -- HERO -- */
+.biens-hero-stats {
+  border-top: 1px solid rgba(251, 249, 244, 0.15);
+}
+
+/* -- CARROUSEL MODALE -- */
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.carousel-dot.active {
+  background: #fff;
+  transform: scale(1.3);
+}
+
+.carousel-arrow {
+  transform: translateY(-50%);
+}
+.carousel-arrow:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+/* -- MODALE DÉTAILS -- */
+#detailModalOverlay {
+  backdrop-filter: blur(4px);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: scale(0.96) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.detail-det-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #F2EDE2;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: #42413D;
+  font-weight: 500;
+}
+.detail-det-item i {
+  color: #A8693E;
+  font-size: 0.75rem;
+}
+
+/* -- FILTRES -- */
+.filtre-chip {
+  border: 1px solid #DFD9C9;
+  background: #fff;
+  padding: 10px 20px;
+  font-size: 0.84rem;
+  color: #42413D;
+  cursor: pointer;
+  transition: all .2s;
+}
+.filtre-chip:hover {
+  border-color: #A8693E;
+}
+.filtre-chip.actif {
+  background: #1C1B19;
+  color: #FBF9F4;
+  border-color: #1C1B19;
+}
+
+/* -- TRI -- */
+.sort-chip {
+  border: none;
+  background: transparent;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  color: #42413D;
+  cursor: pointer;
+  transition: all .2s;
+  border-radius: 4px;
+  font-family: inherit;
+}
+.sort-chip:hover {
+  background: #F2EDE2;
+}
+.sort-chip.actif {
+  background: #A8693E;
+  color: #FBF9F4;
+  font-weight: 600;
+}
+
+/* -- CTA BANDE -- */
+.btn-pleine-claire {
+  background: #FBF9F4;
+  color: #1C1B19;
+  padding: 15px 34px;
+  font-size: 0.86rem;
+  letter-spacing: .5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn-pleine-claire:hover {
+  opacity: .85;
+}
+
+/* -- RESPONSIVE -- */
+@media (max-width: 1000px) {
+  .biens-grid-page {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 700px) {
+  .biens-grid-page {
+    grid-template-columns: 1fr !important;
+  }
+}

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Immo-Business International — Maisons & Terrains au Cameroun, Congo, Gabon, RCA</title>
+<meta name="description" content="Immo-Business International. Maisons, villas et terrains au Cameroun, au Congo, au Gabon et en République Centrafricaine. Une présence sur le terrain, dans chaque pays.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        encre: '#1C1B19',
+        'encre-douce': '#42413D',
+        sable: '#FBF9F4',
+        'sable-fonce': '#F2EDE2',
+        terre: '#A8693E',
+        'terre-fonce': '#7C4B2A',
+        'vert-bouteille': '#33483B',
+        ligne: '#DFD9C9',
+      },
+      fontFamily: {
+        serif: ['Playfair Display', 'Georgia', 'serif'],
+        sans: ['Inter', '-apple-system', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/index.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Immo-Business International","description":"Vente et achat de maisons et terrains au Cameroun, Congo Brazzaville, Gabon et RCA","areaServed":["Cameroun","Congo","Gabon","République Centrafricaine"]}
+</script>
+</head>
+<body class="page-transition font-sans text-encre-douce bg-sable leading-relaxed antialiased">
+
+<!-- ===== TOPBAR ===== -->
+<div class="bg-encre px-8 py-[9px] max-md:hidden">
+  <div class="max-w-[1240px] mx-auto flex items-center justify-between">
+    <div class="flex gap-7 text-[0.78rem] text-white/55 tracking-[.3px]">
+      <span class="inline-flex items-center gap-[7px]"><i class="fa-solid fa-envelope" aria-hidden="true"></i> contact@immobusiness-intl.com</span>
+      <span class="inline-flex items-center gap-[7px]"><i class="fa-solid fa-earth-africa" aria-hidden="true"></i> Cameroun · Congo · Gabon · RCA</span>
+    </div>
+    <div class="flex gap-[18px]">
+      <a href="#" class="text-white/50 text-sm hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#" class="text-white/50 text-sm hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="text-white/50 text-sm hover:text-white transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="bg-sable border-b border-ligne sticky top-0 z-200">
+  <div class="max-w-[1240px] mx-auto flex items-center justify-between px-8 py-[22px] relative">
+    <a href="#" class="flex flex-col no-underline">
+      <span class="font-serif text-[1.5rem] font-semibold text-encre leading-none tracking-[0.5px]">Immo-Business</span>
+      <span class="text-[0.62rem] tracking-[3px] uppercase text-terre mt-[5px] font-medium">International · Depuis l'Afrique Centrale</span>
+    </a>
+    <button class="menu-toggle md:hidden bg-none border-none text-encre text-[1.4rem] cursor-pointer" id="menuToggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    <nav id="navMenu" class="flex gap-[38px] text-sm">
+      <a href="#services" class="text-encre-douce no-underline relative pb-1 hover:text-encre transition-colors">Services</a>
+      <a href="#biens" class="text-encre-douce no-underline relative pb-1 hover:text-encre transition-colors">Biens</a>
+      <a href="#apropos" class="text-encre-douce no-underline relative pb-1 hover:text-encre transition-colors">Histoire</a>
+      <a href="#temoignages" class="text-encre-douce no-underline relative pb-1 hover:text-encre transition-colors">Témoignages</a>
+      <a href="#contact" class="btn-action btn-ligne border border-encre text-encre px-6 py-2.5 text-sm tracking-[.5px] no-underline hover:bg-encre hover:text-sable">Nous écrire</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<div class="relative min-h-[88vh] grid grid-cols-[1.05fr_0.95fr] max-lg:grid-cols-1 max-lg:min-h-auto">
+  <div class="hero-text-col flex flex-col justify-center px-[6vw] bg-sable relative z-10">
+    <div class="flex items-center gap-3.5 mb-7">
+      <div class="w-[34px] h-px bg-terre"></div>
+      <span class="text-[0.78rem] tracking-[2.5px] uppercase text-terre-fonce font-semibold">Agence immobilière, quatre pays</span>
+    </div>
+    <h1 class="font-serif text-[3.1rem] max-lg:text-[2.2rem] font-medium text-encre leading-[1.18] mb-[26px]">
+      Une maison vous attend <em class="italic text-terre-fonce not-italic">au Cameroun, au Congo, au Gabon</em> ou en Centrafrique
+    </h1>
+    <p class="text-base text-encre-douce max-w-[440px] mb-[38px] leading-relaxed">
+      Depuis plus de cinq ans, nous accompagnons des familles et des investisseurs dans l'achat, la vente et la location de biens à travers l'Afrique Centrale — avec un correspondant sur place, dans chaque pays.
+    </p>
+    <div class="flex items-center gap-7">
+      <a href="#biens" class="btn-action bg-encre text-sable px-8 py-3.5 text-sm tracking-[.5px] no-underline hover:bg-terre-fonce">Découvrir nos biens</a>
+      <a href="#apropos" class="text-encre text-sm border-b border-encre pb-[3px] no-underline hover:opacity-60 transition-opacity">Notre histoire</a>
+    </div>
+    <div class="hero-stats-row flex gap-12 mt-16 pt-8 flex-wrap max-lg:gap-7">
+      <div><strong class="block font-serif text-[1.9rem] font-medium text-encre">4</strong><span class="text-[0.74rem] text-encre-douce tracking-[.5px]">Pays de présence</span></div>
+      <div><strong class="block font-serif text-[1.9rem] font-medium text-encre">2 200+</strong><span class="text-[0.74rem] text-encre-douce tracking-[.5px]">Familles suivies</span></div>
+      <div><strong class="block font-serif text-[1.9rem] font-medium text-encre">5 ans</strong><span class="text-[0.74rem] text-encre-douce tracking-[.5px]">Sur le terrain</span></div>
+    </div>
+  </div>
+  <div class="relative overflow-hidden bg-encre" id="heroCarousel">
+    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80');"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80');"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80');"></div>
+    <div id="heroCaption" class="absolute bottom-7 left-7 bg-encre/72 text-sable px-4 py-2 text-[0.76rem] italic font-serif z-[3]">Villa à Bastos, Yaoundé</div>
+    <div class="absolute top-1/2 right-6 -translate-y-1/2 flex flex-col gap-2.5 z-[3]" id="heroDots">
+      <div class="hero-dot w-[6px] h-[6px] rounded-full bg-white/40 cursor-pointer active" onclick="goHero(0)"></div>
+      <div class="hero-dot w-[6px] h-[6px] rounded-full bg-white/40 cursor-pointer" onclick="goHero(1)"></div>
+      <div class="hero-dot w-[6px] h-[6px] rounded-full bg-white/40 cursor-pointer" onclick="goHero(2)"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BANDE PAYS ===== -->
+<div class="bg-sable-fonce border-b border-ligne border-t border-ligne">
+  <div class="max-w-[1240px] mx-auto px-8 py-[30px] flex items-center overflow-x-auto gap-0">
+    <span class="text-[0.74rem] tracking-[2px] uppercase text-terre-fonce font-semibold whitespace-nowrap mr-9 shrink-0">Nos terrains d'action</span>
+    <div class="flex items-center gap-2.5 px-7 border-l border-ligne whitespace-nowrap hover:opacity-60 transition-opacity cursor-pointer"><span class="text-[1.15rem]">🇨🇲</span><div><strong class="font-serif text-base text-encre font-medium">Cameroun</strong><span class="text-[0.74rem] text-encre-douce block">Yaoundé, Douala</span></div></div>
+    <div class="flex items-center gap-2.5 px-7 border-l border-ligne whitespace-nowrap hover:opacity-60 transition-opacity cursor-pointer"><span class="text-[1.15rem]">🇨🇬</span><div><strong class="font-serif text-base text-encre font-medium">Congo</strong><span class="text-[0.74rem] text-encre-douce block">Brazzaville</span></div></div>
+    <div class="flex items-center gap-2.5 px-7 border-l border-ligne whitespace-nowrap hover:opacity-60 transition-opacity cursor-pointer"><span class="text-[1.15rem]">🇬🇦</span><div><strong class="font-serif text-base text-encre font-medium">Gabon</strong><span class="text-[0.74rem] text-encre-douce block">Libreville</span></div></div>
+    <div class="flex items-center gap-2.5 px-7 border-l border-ligne whitespace-nowrap hover:opacity-60 transition-opacity cursor-pointer"><span class="text-[1.15rem]">🇨🇫</span><div><strong class="font-serif text-base text-encre font-medium">RCA</strong><span class="text-[0.74rem] text-encre-douce block">Bangui</span></div></div>
+  </div>
+</div>
+
+<!-- ===== SERVICES ===== -->
+<div class="max-w-[1240px] mx-auto px-8 py-[110px] max-md:py-[70px] max-md:px-6" id="services">
+  <div class="flex justify-between items-end mb-14 gap-10 max-md:flex-col max-md:items-start">
+    <div>
+      <div class="flex items-center gap-3 mb-[18px]"><div class="w-7 h-px bg-terre"></div><span class="text-[0.74rem] tracking-[2.2px] uppercase text-terre-fonce font-semibold">Ce que nous faisons</span></div>
+      <h2 class="font-serif text-[2.2rem] font-medium text-encre leading-tight max-w-[580px]">Quatre métiers, une même exigence</h2>
+    </div>
+    <p class="text-sm text-encre-douce max-w-[340px] leading-relaxed text-right max-md:text-left">Du premier contact jusqu'à la remise des clés, nous restons présents à chaque étape.</p>
+  </div>
+  <div class="border-t border-ligne">
+    <div class="svc-row">
+      <span class="svc-num">01</span>
+      <h3 class="font-serif text-[1.3rem] font-medium text-encre">Achat immobilier</h3>
+      <p class="text-sm text-encre-douce max-w-[480px] leading-relaxed">Nous présentons des maisons, villas et appartements vérifiés sur place, avec photos et vidéos récentes, dans chacun de nos quatre pays de présence.</p>
+    </div>
+    <div class="svc-row">
+      <span class="svc-num">02</span>
+      <h3 class="font-serif text-[1.3rem] font-medium text-encre">Vente de terrains</h3>
+      <p class="text-sm text-encre-douce max-w-[480px] leading-relaxed">Parcelles titrées et bornées. Nous vérifions chaque document foncier avant de le présenter à un acheteur, pour éviter tout litige ultérieur.</p>
+    </div>
+    <div class="svc-row">
+      <span class="svc-num">03</span>
+      <h3 class="font-serif text-[1.3rem] font-medium text-encre">Mise en relation</h3>
+      <p class="text-sm text-encre-douce max-w-[480px] leading-relaxed">Un pont direct entre vendeurs et acheteurs, avec un accompagnement qui traverse les frontières lorsque le projet l'exige.</p>
+    </div>
+    <div class="svc-row">
+      <span class="svc-num">04</span>
+      <h3 class="font-serif text-[1.3rem] font-medium text-encre">Accompagnement diaspora</h3>
+      <p class="text-sm text-encre-douce max-w-[480px] leading-relaxed">Visites filmées, négociation à distance, suivi administratif — pensé pour celles et ceux qui préparent leur retour ou un investissement depuis l'étranger.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BIENS MOSAÏQUE ===== -->
+<div class="max-w-[1240px] mx-auto px-8 pb-[90px] max-md:px-6" id="biens" style="padding-top:0;">
+  <div class="flex justify-between items-end mb-14 gap-10 max-md:flex-col max-md:items-start">
+    <div>
+      <div class="flex items-center gap-3 mb-[18px]"><div class="w-7 h-px bg-terre"></div><span class="text-[0.74rem] tracking-[2.2px] uppercase text-terre-fonce font-semibold">Sélection du moment</span></div>
+      <h2 class="font-serif text-[2.2rem] font-medium text-encre leading-tight max-w-[580px]">Quelques biens, à travers la région</h2>
+    </div>
+    <p class="text-sm text-encre-douce max-w-[340px] leading-relaxed text-right max-md:text-left">Une sélection actualisée régulièrement par nos correspondants locaux.</p>
+  </div>
+  <div class="biens-mosaic-wrap">
+    <div class="biens-mosaic-track" id="biensTrack"></div>
+  </div>
+  <div class="flex justify-center mt-12">
+    <a href="biens.html" class="btn-action btn-voirplus border border-encre text-encre px-[38px] py-3.5 text-sm tracking-[.6px] no-underline inline-flex items-center gap-2.5 hover:bg-encre hover:text-sable">Voir plus de biens <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</div>
+
+<!-- ===== A PROPOS ===== -->
+<div class="bg-encre text-sable" id="apropos">
+  <div class="max-w-[1240px] mx-auto px-8 py-[110px] grid grid-cols-[0.85fr_1.15fr] gap-20 items-center max-lg:grid-cols-1">
+    <div class="apropos-img-stack relative max-lg:hidden">
+      <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=700&q=80" alt="Équipe Immo-Business sur le terrain" class="w-full h-[460px] object-cover">
+      <div class="frame-back"></div>
+    </div>
+    <div>
+      <div class="flex items-center gap-3 mb-[18px]"><div class="w-7 h-px bg-terre"></div><span class="text-[0.74rem] tracking-[2.2px] uppercase text-terre font-semibold">Notre histoire</span></div>
+      <h2 class="font-serif text-[2.1rem] font-medium text-sable leading-tight">Née d'un constat simple : la distance ne devrait pas être un obstacle</h2>
+      <p class="text-sm text-sable/72 leading-relaxed my-6 max-w-[480px]">Immo-Business International est née de la conviction que l'on peut acheter ou vendre un bien en toute confiance, même à des milliers de kilomètres. Nous avons construit, pays après pays, un réseau de correspondants capables de vérifier un titre foncier, filmer une visite, ou négocier un prix en notre nom.</p>
+      <p class="text-sm text-sable/72 leading-relaxed my-6 max-w-[480px]">Aujourd'hui présents au Cameroun, au Congo, au Gabon et en République Centrafricaine, nous restons fidèles à cette idée de départ : chaque dossier mérite un suivi humain, pas seulement une annonce en ligne.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TEMOIGNAGES ===== -->
+<div class="bg-sable-fonce border-t border-ligne border-b border-ligne" id="temoignages">
+  <div class="max-w-[760px] mx-auto px-8 py-[110px] text-center relative">
+    <div class="flex items-center justify-center gap-3 mb-[18px]"><div class="w-7 h-px bg-terre"></div><span class="text-[0.74rem] tracking-[2.2px] uppercase text-terre-fonce font-semibold">Paroles de clients</span></div>
+    <div class="font-serif text-5xl text-terre opacity-35 leading-none mb-2">&ldquo;</div>
+    <div class="temo-track">
+      <div class="temo-inner" id="temoTrack">
+        <div class="temo-slide min-w-full px-5">
+          <p class="font-serif text-[1.5rem] italic text-encre leading-relaxed mb-9">Depuis la France, j'ai pu acheter un terrain à Yaoundé sans jamais douter de sa légitimité. Leur correspondant a vérifié le titre foncier et m'envoyait des nouvelles à chaque étape.</p>
+          <div><strong class="block text-sm text-encre font-semibold tracking-[.3px]">Estelle M.</strong><span class="text-[0.82rem] text-encre-douce">Diaspora camerounaise, France</span></div>
+        </div>
+        <div class="temo-slide min-w-full px-5">
+          <p class="font-serif text-[1.5rem] italic text-encre leading-relaxed mb-9">J'ai vendu ma maison à Brazzaville par leur intermédiaire. Tout s'est joué en quelques semaines, avec un sérieux que je n'avais pas trouvé ailleurs.</p>
+          <div><strong class="block text-sm text-encre font-semibold tracking-[.3px]">Roger P.</strong><span class="text-[0.82rem] text-encre-douce">Propriétaire, Brazzaville</span></div>
+        </div>
+        <div class="temo-slide min-w-full px-5">
+          <p class="font-serif text-[1.5rem] italic text-encre leading-relaxed mb-9">Trouver un appartement à Libreville depuis l'étranger semblait impossible. J'ai reçu des vidéos de chaque visite, comme si j'y étais.</p>
+          <div><strong class="block text-sm text-encre font-semibold tracking-[.3px]">Christelle N.</strong><span class="text-[0.82rem] text-encre-douce">Locataire, Libreville</span></div>
+        </div>
+        <div class="temo-slide min-w-full px-5">
+          <p class="font-serif text-[1.5rem] italic text-encre leading-relaxed mb-9">Pour mon retour à Bangui, ils m'ont trouvé exactement ce que je cherchais. Une présence rassurante, du premier jour à la remise des clés.</p>
+          <div><strong class="block text-sm text-encre font-semibold tracking-[.3px]">Olivier D.</strong><span class="text-[0.82rem] text-encre-douce">Acheteur, Bangui</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center gap-[22px] mt-11 items-center">
+      <button class="temo-arrow bg-none border-none text-encre text-base cursor-pointer opacity-50 hover:opacity-100 transition-opacity p-1.5" id="temoPrev"><i class="fa-solid fa-arrow-left"></i></button>
+      <div class="flex gap-2" id="temoDots">
+        <div class="temo-dot-h w-[5px] h-[5px] rounded-full bg-ligne cursor-pointer active" onclick="goTemo(0)"></div>
+        <div class="temo-dot-h w-[5px] h-[5px] rounded-full bg-ligne cursor-pointer" onclick="goTemo(1)"></div>
+        <div class="temo-dot-h w-[5px] h-[5px] rounded-full bg-ligne cursor-pointer" onclick="goTemo(2)"></div>
+        <div class="temo-dot-h w-[5px] h-[5px] rounded-full bg-ligne cursor-pointer" onclick="goTemo(3)"></div>
+      </div>
+      <button class="temo-arrow bg-none border-none text-encre text-base cursor-pointer opacity-50 hover:opacity-100 transition-opacity p-1.5" id="temoNext"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONTACT ===== -->
+<div class="max-w-[1240px] mx-auto px-8 py-[110px] grid grid-cols-[0.8fr_1.2fr] gap-20 max-lg:grid-cols-1" id="contact">
+  <div>
+    <div class="flex items-center gap-3 mb-[18px]"><div class="w-7 h-px bg-terre"></div><span class="text-[0.74rem] tracking-[2.2px] uppercase text-terre-fonce font-semibold">Parlons-en</span></div>
+    <h2 class="font-serif text-[2.2rem] font-medium text-encre leading-tight">Écrivez-nous, où que vous soyez</h2>
+    <p class="text-sm text-encre-douce my-[22px] leading-relaxed max-w-[380px]">Précisez votre pays et votre projet ; notre correspondant local vous répond généralement sous 24 heures.</p>
+    <div class="flex gap-4 py-[18px] border-b border-ligne items-start first:border-t border-t-ligne"><i class="fa-solid fa-earth-africa text-terre text-base w-5 mt-[3px]"></i><div><h4 class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce mb-[3px]">Zone de couverture</h4><p class="text-sm text-encre">Cameroun, Congo, Gabon, RCA</p></div></div>
+    <div class="flex gap-4 py-[18px] border-b border-ligne items-start"><i class="fa-brands fa-whatsapp text-terre text-base w-5 mt-[3px]"></i><div><h4 class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce mb-[3px]">WhatsApp</h4><a href="https://wa.me/" target="_blank" class="text-sm text-encre no-underline">Écrire directement</a></div></div>
+    <div class="flex gap-4 py-[18px] border-b border-ligne items-start"><i class="fa-solid fa-envelope text-terre text-base w-5 mt-[3px]"></i><div><h4 class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce mb-[3px]">Email</h4><a href="mailto:contact@immobusiness-intl.com" class="text-sm text-encre no-underline">contact@immobusiness-intl.com</a></div></div>
+    <div class="flex gap-4 py-[18px] border-b border-ligne items-start"><i class="fa-brands fa-facebook text-terre text-base w-5 mt-[3px]"></i><div><h4 class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce mb-[3px]">Facebook</h4><a href="#" target="_blank" class="text-sm text-encre no-underline">Immo-Business International</a></div></div>
+  </div>
+  <div class="bg-white border border-ligne px-11 py-12 max-md:px-[26px] max-md:py-9">
+    <h3 class="font-serif text-[1.4rem] font-medium text-encre mb-8">Une demande de renseignement</h3>
+    <div class="grid grid-cols-2 gap-5 max-md:grid-cols-1">
+      <div><label class="text-[0.72rem] tracking-[1.2px] uppercase text-encre-douce block mb-2">Nom complet</label><input type="text" required class="w-full border-none border-b border-ligne bg-transparent pb-[9px] text-sm text-encre outline-none focus:border-terre transition-colors mb-[26px]"></div>
+      <div><label class="text-[0.72rem] tracking-[1.2px] uppercase text-encre-douce block mb-2">Pays concerné</label>
+        <select required class="w-full border-none border-b border-ligne bg-transparent pb-[9px] text-sm text-encre outline-none focus:border-terre transition-colors mb-[26px]">
+          <option value="" disabled selected>Choisir</option>
+          <option>Cameroun</option><option>Congo</option><option>Gabon</option><option>RCA</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-5 max-md:grid-cols-1">
+      <div><label class="text-[0.72rem] tracking-[1.2px] uppercase text-encre-douce block mb-2">Téléphone / WhatsApp</label><input type="tel" required class="w-full border-none border-b border-ligne bg-transparent pb-[9px] text-sm text-encre outline-none focus:border-terre transition-colors mb-[26px]"></div>
+      <div><label class="text-[0.72rem] tracking-[1.2px] uppercase text-encre-douce block mb-2">Email</label><input type="email" class="w-full border-none border-b border-ligne bg-transparent pb-[9px] text-sm text-encre outline-none focus:border-terre transition-colors mb-[26px]"></div>
+    </div>
+    <label class="text-[0.72rem] tracking-[1.2px] uppercase text-encre-douce block mb-2">Nature de la demande</label>
+    <select required class="w-full border-none border-b border-ligne bg-transparent pb-[9px] text-sm text-encre outline-none focus:border-terre transition-colors mb-[26px]">
+      <option value="" disabled selected>Choisir</option>
+      <option>Acheter une maison ou une villa</option>
+      <option>Acheter un terrain</option>
+      <option>Louer un bien</option>
+      <option>Vendre mon bien</option>
+      <option>Autre renseignement</option>
+    </select>
+    <label class="text-[0.72rem] tracking-[1.2px] uppercase text-encre-douce block mb-2">Votre projet en quelques mots</label>
+    <textarea placeholder="Ville, budget, type de bien recherché..." class="w-full border-none border-b border-ligne bg-transparent pb-[9px] text-sm text-encre outline-none focus:border-terre transition-colors resize-y min-h-[80px] mb-[26px]"></textarea>
+    <button type="button" onclick="alert('Merci. Votre demande a bien été transmise — notre correspondant local vous répond sous 24h.')" class="btn-action bg-encre text-sable border-none px-[38px] py-3.5 text-sm tracking-[.6px] cursor-pointer inline-flex items-center gap-2.5 hover:bg-terre-fonce">
+      Envoyer ma demande <i class="fa-solid fa-arrow-right"></i>
+    </button>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div class="bg-encre text-white/60">
+  <div class="max-w-[1240px] mx-auto px-8 pt-[72px] pb-9 grid grid-cols-[1.6fr_1fr_1fr_1fr] gap-12 max-lg:grid-cols-2 max-md:grid-cols-1">
+    <div>
+      <span class="font-serif text-[1.5rem] font-semibold text-sable leading-none tracking-[0.5px]">Immo-Business</span>
+      <p class="text-sm mt-[18px] leading-relaxed max-w-[280px] text-white/50">Maisons, villas et terrains au Cameroun, au Congo, au Gabon et en République Centrafricaine. Une présence sur le terrain, dans chaque pays.</p>
+    </div>
+    <div>
+      <h4 class="text-[0.7rem] tracking-[2px] uppercase text-terre mb-[18px] font-semibold">Services</h4>
+      <ul class="list-none">
+        <li class="mb-[11px]"><a href="#services" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Achat immobilier</a></li>
+        <li class="mb-[11px]"><a href="#services" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Vente de terrains</a></li>
+        <li class="mb-[11px]"><a href="#services" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Mise en relation</a></li>
+        <li class="mb-[11px]"><a href="#services" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Diaspora</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-[0.7rem] tracking-[2px] uppercase text-terre mb-[18px] font-semibold">Pays</h4>
+      <ul class="list-none">
+        <li class="mb-[11px]"><a href="#biens" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Cameroun</a></li>
+        <li class="mb-[11px]"><a href="#biens" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Congo</a></li>
+        <li class="mb-[11px]"><a href="#biens" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Gabon</a></li>
+        <li class="mb-[11px]"><a href="#biens" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">RCA</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-[0.7rem] tracking-[2px] uppercase text-terre mb-[18px] font-semibold">Contact</h4>
+      <ul class="list-none">
+        <li class="mb-[11px]"><a href="mailto:contact@immobusiness-intl.com" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Email</a></li>
+        <li class="mb-[11px]"><a href="#" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">WhatsApp</a></li>
+        <li class="mb-[11px]"><a href="#" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Facebook</a></li>
+        <li class="mb-[11px]"><a href="#" class="text-sm text-white/55 no-underline hover:text-sable transition-colors">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom px-8 py-[22px] text-center text-[0.78rem] text-white/35">&copy; 2026 Immo-Business International — <em class="text-terre not-italic">tous droits réservés</em></div>
+</div>
+
+<!-- ===== WHATSAPP FLOAT ===== -->
+<a href="https://wa.me/" target="_blank" class="wa-float fixed bottom-6 right-6 bg-vert-bouteille text-sable w-[52px] h-[52px] rounded-full flex items-center justify-center text-[1.35rem] z-[300] shadow-[0_6px_18px_rgba(0,0,0,0.25)] hover:bg-[#243329]" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="js/main.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
