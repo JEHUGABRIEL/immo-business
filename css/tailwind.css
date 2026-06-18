@@ -573,6 +573,10 @@ video {
 .inset-0 {
   inset: 0px;
 }
+.inset-y-0 {
+  top: 0px;
+  bottom: 0px;
+}
 .bottom-16 {
   bottom: 4rem;
 }
@@ -605,6 +609,9 @@ video {
 }
 .right-4 {
   right: 1rem;
+}
+.right-5 {
+  right: 1.25rem;
 }
 .right-6 {
   right: 1.5rem;
@@ -647,6 +654,10 @@ video {
 .my-\[22px\] {
   margin-top: 22px;
   margin-bottom: 22px;
+}
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .mb-1 {
   margin-bottom: 0.25rem;
