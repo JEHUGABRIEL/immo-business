@@ -79,21 +79,32 @@ body::before {
 @media (max-width: 700px) {
   nav#navMenu {
     display: none !important;
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
+    z-index: 150;
     flex-direction: column;
-    padding: 20px 24px;
-    gap: 18px;
-    border-top: 1px solid #DFD9C9;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    gap: 26px;
     background: #FBF9F4;
   }
   nav#navMenu.open {
     display: flex !important;
   }
-  .btn-ligne {
-    display: none;
+  nav#navMenu a {
+    font-size: 1.15rem;
+  }
+  nav#navMenu a.btn-ligne {
+    display: inline-flex;
+    margin-top: 10px;
+  }
+  .menu-toggle {
+    position: relative;
+    z-index: 250;
   }
 }
 
@@ -241,6 +252,15 @@ nav a.actif::after {
 @keyframes badge-pop {
   0%, 100% { box-shadow: 0 0 0 0 rgba(212, 160, 23, 0.4); }
   50% { box-shadow: 0 0 0 6px rgba(212, 160, 23, 0); }
+}
+
+/* --- Carrousel pays (bande "Nos terrains d'action") --- */
+.pays-slide {
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+.pays-slide.fade-out {
+  opacity: 0;
 }
 
 /* --- Animations diverses --- */

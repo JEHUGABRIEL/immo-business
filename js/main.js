@@ -6,12 +6,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var nav = document.getElementById('navMenu');
   if (toggle && nav) {
     toggle.addEventListener('click', function () {
-      nav.classList.toggle('open');
+      var isOpen = nav.classList.toggle('open');
+      // Basculer icône hamburger ↔ close
+      toggle.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
     });
     // Fermer au clic sur un lien
     nav.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () {
         nav.classList.remove('open');
+        toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
       });
     });
   }
