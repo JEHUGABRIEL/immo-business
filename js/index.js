@@ -69,25 +69,19 @@
 
   /* ── MOSAÏQUE BIENS (défilement infini) ── */
   var biensData = [
-    { flag: '🇨🇲', loc: 'Bastos, Yaoundé', titre: 'Villa moderne avec jardin', detail: '5 chambres &middot; 220 m²', prix: '85 000 000 FCFA', img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80', views: 18 },
-    { flag: '🇨🇬', loc: 'Kintélé, Brazzaville', titre: 'Terrain titré, 600 m²', detail: '', prix: '25 000 000 FCFA', img: 'images/Congo/Bien_1/720286546_1658192892137939_5436816513672571744_n.jpeg', views: 42 },
-    { flag: '🇬🇦', loc: 'Glass, Libreville', titre: 'Appartement meublé', detail: '', prix: '350 000 FCFA / mois', img: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80', views: 35 },
-    { flag: '🇨🇫', loc: 'Bangui', titre: 'Maison familiale', detail: '', prix: '38 000 000 FCFA', img: 'images/Centrafrique/Bien1/723686760_1472986368179534_1342459871268264140_n.jpg', views: 27 },
-    { flag: '🇨🇲', loc: 'Bonapriso, Douala', titre: 'Duplex vue mer', detail: '4 chambres &middot; 260 m²', prix: '95 000 000 FCFA', img: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=700&q=80', views: 5 },
-    { flag: '🇨🇬', loc: 'Centre-ville, Brazzaville', titre: 'Local commercial', detail: '', prix: '600 000 FCFA / mois', img: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=500&q=80', views: 63 },
-    { flag: '🇬🇦', loc: 'Akanda, Libreville', titre: 'Villa en bord de mer', detail: '', prix: '120 000 000 FCFA', img: 'https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=500&q=80', views: 11 },
-    { flag: '🇨🇫', loc: 'Boy-Rabe, Bangui', titre: 'Terrain résidentiel', detail: '', prix: '12 000 000 FCFA', img: 'images/Centrafrique/Bien_2/724764602_1472940564850781_4738221180956559236_n.jpg', views: 89 },
-    { flag: '🇹🇩', loc: 'N\'Djaména', titre: 'Appartement meublé', detail: '', prix: '280 000 FCFA / mois', img: 'images/724666206_1472985994846238_7251162334942360209_n.jpg', views: 8 },
+    { flag: '🇨🇲', loc: 'Bastos, Yaoundé', titre: 'Villa moderne avec jardin', detail: '5 chambres &middot; 220 m²', prix: '85 000 000 FCFA', img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80', populaire: true },
+    { flag: '🇨🇬', loc: 'Kintélé, Brazzaville', titre: 'Terrain titré, 600 m²', detail: '', prix: '25 000 000 FCFA', img: 'images/Congo/Bien_1/720286546_1658192892137939_5436816513672571744_n.jpeg', populaire: true },
+    { flag: '🇬🇦', loc: 'Glass, Libreville', titre: 'Appartement meublé', detail: '', prix: '350 000 FCFA / mois', img: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80', populaire: true },
+    { flag: '🇨🇫', loc: 'Bangui', titre: 'Maison familiale', detail: '', prix: '38 000 000 FCFA', img: 'images/Centrafrique/Bien1/723686760_1472986368179534_1342459871268264140_n.jpg' },
+    { flag: '🇨🇲', loc: 'Bonapriso, Douala', titre: 'Duplex vue mer', detail: '4 chambres &middot; 260 m²', prix: '95 000 000 FCFA', img: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=700&q=80' },
+    { flag: '🇨🇬', loc: 'Centre-ville, Brazzaville', titre: 'Local commercial', detail: '', prix: '600 000 FCFA / mois', img: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=500&q=80' },
+    { flag: '🇬🇦', loc: 'Akanda, Libreville', titre: 'Villa en bord de mer', detail: '', prix: '120 000 000 FCFA', img: 'https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=500&q=80' },
+    { flag: '🇨🇫', loc: 'Boy-Rabe, Bangui', titre: 'Terrain résidentiel', detail: '', prix: '12 000 000 FCFA', img: 'images/Centrafrique/Bien_2/724764602_1472940564850781_4738221180956559236_n.jpg' },
+    { flag: '🇹🇩', loc: 'N\'Djaména', titre: 'Appartement meublé', detail: '', prix: '280 000 FCFA / mois', img: 'images/724666206_1472985994846238_7251162334942360209_n.jpg' },
   ];
 
-  // Pré-calcul du seuil "Populaire" (top 3 des vues)
-  var _populaireSeuil = (function () {
-    var vues = biensData.map(function (b) { return b.views; }).sort(function (a, b) { return b - a; });
-    return vues[2] || 0;
-  })();
-
   function isPopulaire(b) {
-    return b.views >= _populaireSeuil;
+    return b.populaire === true;
   }
 
   function tileHTML(b, isGrande) {
