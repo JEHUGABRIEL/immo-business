@@ -308,6 +308,18 @@
       liste = liste.filter(function (b) { return matchSearch(b, query); });
     }
     liste = trier(liste);
+    if (!liste.length) {
+      grid.innerHTML = '<div class="col-span-full flex flex-col items-center justify-center py-20 text-center">' +
+        '<div class="w-20 h-20 rounded-full bg-sable-fonce flex items-center justify-center mb-6">' +
+          '<i class="fa-solid fa-magnifying-glass text-[1.6rem] text-encre-douce/30"></i>' +
+        '</div>' +
+        '<p class="font-serif text-[1.2rem] font-medium text-encre mb-2">Aucun bien trouvé</p>' +
+        '<p class="text-sm text-encre-douce/60 max-w-[320px]">' +
+          (query ? 'Essayez de modifier vos mots-clés ou de sélectionner un autre filtre.' : 'Aucun bien disponible dans cette catégorie pour le moment.') +
+        '</p>' +
+      '</div>';
+      return;
+    }
     grid.innerHTML = liste.map(cardHTML).join('');
     Array.from(grid.querySelectorAll('.bien-card-full')).forEach(function (card) {
       card.addEventListener('click', function () {
