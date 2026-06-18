@@ -208,11 +208,18 @@
     if (fadeObserver) fadeObserver.disconnect();
 
     fadeObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
+      // Trier par position dans le DOM pour un stagger cohérent
+      var visible = entries.filter(function (e) { return e.isIntersecting; });
+      visible.sort(function (a, b) {
+        var idxA = Array.from(a.target.parentNode.children).indexOf(a.target);
+        var idxB = Array.from(b.target.parentNode.children).indexOf(b.target);
+        return idxA - idxB;
+      });
+      visible.forEach(function (entry, i) {
+        setTimeout(function () {
           entry.target.classList.add('visible');
           fadeObserver.unobserve(entry.target);
-        }
+        }, i * 80);
       });
     }, { threshold: 0.12 });
 
