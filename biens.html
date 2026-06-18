@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tous nos biens — Immo-Business International</title>
-<meta name="description" content="Toutes les maisons, villas, appartements et terrains disponibles au Cameroun, au Congo, au Gabon et en République Centrafricaine.">
+<meta name="description" content="Toutes les maisons, villas, appartements et terrains disponibles au Cameroun, au Congo, au Gabon, en République Centrafricaine et au Tchad.">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -31,32 +31,33 @@ tailwind.config = {
   }
 }
 </script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/biens.css">
 </head>
-<body class="page-transition font-sans text-encre-douce bg-sable leading-relaxed antialiased">
+<body class="page-transition font-sans text-encre-douce bg-sable leading-relaxed antialiased fixed-header">
 
-<!-- ===== TOPBAR ===== -->
-<div class="bg-encre px-8 py-[9px] max-md:hidden">
-  <div class="max-w-[1240px] mx-auto flex items-center justify-between">
-    <div class="flex gap-7 text-[0.78rem] text-white/55 tracking-[.3px]">
-      <span class="inline-flex items-center gap-[7px]"><i class="fa-solid fa-envelope" aria-hidden="true"></i> contact@immobusiness-intl.com</span>
-      <span class="inline-flex items-center gap-[7px]"><i class="fa-solid fa-earth-africa" aria-hidden="true"></i> Cameroun · Congo · Gabon · RCA</span>
-    </div>
-    <div class="flex gap-[18px]">
-      <a href="#" class="text-white/50 text-sm hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
-      <a href="#" class="text-white/50 text-sm hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#" class="text-white/50 text-sm hover:text-white transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+<div class="header-wrap fixed top-0 left-0 right-0 z-200">
+  <!-- ===== TOPBAR ===== -->
+  <div class="bg-encre px-8 py-[9px] max-md:hidden">
+    <div class="max-w-[1240px] mx-auto flex items-center justify-between">
+      <div class="flex gap-7 text-[0.78rem] text-white/55 tracking-[.3px]">
+        <span class="inline-flex items-center gap-[7px]"><i class="fa-solid fa-envelope" aria-hidden="true"></i> contact@immobusiness-intl.com</span>
+        <span class="inline-flex items-center gap-[7px]"><i class="fa-solid fa-earth-africa" aria-hidden="true"></i> Cameroun · Congo · Gabon · RCA · Tchad</span>
+      </div>
+      <div class="flex gap-[18px]">
+        <a href="#" class="text-white/50 text-sm hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="text-white/50 text-sm hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="text-white/50 text-sm hover:text-white transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- ===== HEADER ===== -->
-<header class="bg-sable border-b border-ligne sticky top-0 z-200">
+  <!-- ===== HEADER ===== -->
+  <header class="bg-sable border-b border-ligne">
   <div class="max-w-[1240px] mx-auto flex items-center justify-between px-8 py-[22px] relative">
-    <a href="index.html" class="flex flex-col no-underline">
-      <span class="font-serif text-[1.5rem] font-semibold text-encre leading-none tracking-[0.5px]">Immo-Business</span>
-      <span class="text-[0.62rem] tracking-[3px] uppercase text-terre mt-[5px] font-medium">International · Depuis l'Afrique Centrale</span>
+    <a href="index.html" class="no-underline flex items-center">
+      <img src="logo.svg" alt="Immo-Business International" class="block h-[40px] w-auto">
     </a>
     <button class="menu-toggle md:hidden bg-none border-none text-encre text-[1.4rem] cursor-pointer" id="menuToggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
     <nav id="navMenu" class="flex gap-[38px] text-sm">
@@ -68,6 +69,7 @@ tailwind.config = {
     </nav>
   </div>
 </header>
+</div>
 
 <!-- ===== HERO ===== -->
 <div class="relative h-[50vh] min-h-[380px] bg-encre flex items-center overflow-hidden">
@@ -83,7 +85,7 @@ tailwind.config = {
         <span class="text-[0.78rem] tracking-[2.5px] uppercase text-terre font-semibold">Notre portefeuille</span>
       </div>
       <h1 class="font-serif text-[2.8rem] max-md:text-[2rem] font-medium text-sable leading-tight">Tous nos biens, à travers l'Afrique Centrale</h1>
-      <p class="text-base text-sable/70 max-w-[520px] mt-5 leading-relaxed">Maisons, villas, appartements et terrains, vérifiés sur le terrain par nos correspondants au Cameroun, au Congo, au Gabon et en République Centrafricaine.</p>
+      <p class="text-base text-sable/70 max-w-[520px] mt-5 leading-relaxed">Maisons, villas, appartements et terrains, vérifiés sur le terrain par nos correspondants au Cameroun, au Congo, au Gabon, en République Centrafricaine et au Tchad.</p>
       <!-- Stats rapides -->
       <div class="flex gap-10 mt-10 pt-6 border-t border-white/15">
         <div>
@@ -111,6 +113,7 @@ tailwind.config = {
     <div class="filtre-chip" data-pays="congo">🇨🇬 Congo</div>
     <div class="filtre-chip" data-pays="gabon">🇬🇦 Gabon</div>
     <div class="filtre-chip" data-pays="rca">🇨🇫 RCA</div>
+    <div class="filtre-chip" data-pays="tchad">🇹🇩 Tchad</div>
   </div>
   <!-- Tri -->
   <div class="flex items-center gap-3 pt-5">
@@ -137,7 +140,7 @@ tailwind.config = {
   <div class="max-w-[1240px] mx-auto px-8 pt-[72px] pb-9 grid grid-cols-[1.6fr_1fr_1fr_1fr] gap-12 max-lg:grid-cols-2 max-md:grid-cols-1">
     <div>
       <span class="font-serif text-[1.5rem] font-semibold text-sable leading-none tracking-[0.5px]">Immo-Business</span>
-      <p class="text-sm mt-[18px] leading-relaxed max-w-[280px] text-white/50">Maisons, villas et terrains au Cameroun, au Congo, au Gabon et en République Centrafricaine. Une présence sur le terrain, dans chaque pays.</p>
+      <p class="text-sm mt-[18px] leading-relaxed max-w-[280px] text-white/50">Maisons, villas et terrains au Cameroun, au Congo, au Gabon, en RCA et au Tchad. Une présence sur le terrain, dans chaque pays.</p>
     </div>
     <div>
       <h4 class="text-[0.7rem] tracking-[2px] uppercase text-terre mb-[18px] font-semibold">Services</h4>
@@ -224,7 +227,10 @@ tailwind.config = {
       </div>
 
       <!-- Détails -->
-      <div id="modalDetailDets" class="flex flex-wrap gap-3 mb-8"></div>
+      <div id="modalDetailDets" class="flex flex-wrap gap-3 mb-6"></div>
+
+      <!-- Description -->
+      <div id="modalDetailDesc" class="text-sm text-encre-douce/80 leading-relaxed mb-8 max-w-[600px]"></div>
 
       <!-- Séparateur -->
       <div class="border-t border-ligne pt-6">

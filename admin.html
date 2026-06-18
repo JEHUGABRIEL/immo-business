@@ -32,10 +32,11 @@ tailwind.config = {
   }
 }
 </script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/admin.css">
 </head>
-<body class="font-sans text-encre-douce bg-sable-fonce leading-relaxed antialiased min-h-screen">
+<body class="font-sans text-encre-douce bg-sable-fonce leading-relaxed antialiased min-h-screen fixed-header">
 
 <!-- ===== LOGIN ===== -->
 <div id="loginScreen">
@@ -57,8 +58,7 @@ tailwind.config = {
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="px-7 pt-[30px] pb-6 border-b border-white/10">
-      <div class="font-serif text-[1.2rem] font-semibold text-sable leading-none">Immo-Business</div>
-      <div class="text-[0.6rem] tracking-[2.5px] uppercase text-terre mt-[5px]">International · Admin</div>
+      <img src="logo-light.svg" alt="Immo-Business International" class="block h-[38px] w-auto">
     </div>
     <nav class="py-7 flex-1">
       <div class="text-[0.62rem] tracking-[2.5px] uppercase text-white/30 px-7 mb-2.5">Gestion</div>
@@ -76,14 +76,19 @@ tailwind.config = {
 
   <!-- MAIN -->
   <div class="main ml-[248px] min-h-screen">
-    <div class="bg-sable border-b border-ligne px-9 py-[18px] flex items-center justify-between">
-      <h1 class="font-serif text-[1.35rem] font-medium text-encre">Biens immobiliers</h1>
-      <div class="flex items-center gap-5 text-[0.82rem] text-encre-douce">
-        <span>Connecté en tant que <strong>admin</strong></span>
+    <div class="header-wrap-admin">
+      <div class="header-wrap-admin-inner bg-sable border-b border-ligne px-9 py-[18px] flex items-center justify-between">
+        <h1 class="font-serif text-[1.35rem] font-medium text-encre">Biens immobiliers</h1>
+        <div class="flex items-center gap-5 text-[0.82rem] text-encre-douce">
+          <span>Connecté en tant que <strong>admin</strong></span>
+          <button onclick="logout()" class="flex items-center gap-1.5 text-[0.82rem] text-encre-douce hover:text-erreur transition-colors bg-none border-none cursor-pointer whitespace-nowrap">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Déconnexion
+          </button>
+        </div>
       </div>
     </div>
 
-    <div class="px-9 py-10">
+    <div class="px-9 py-10 main-content">
 
       <!-- STATS -->
       <div class="grid grid-cols-4 gap-5 mb-11 max-lg:grid-cols-2 max-sm:grid-cols-1">
@@ -104,8 +109,8 @@ tailwind.config = {
         </div>
         <div class="stat-card bg-white border border-ligne px-[26px] py-6">
           <div class="text-[0.72rem] tracking-[1.8px] uppercase text-encre-douce mb-2.5 font-semibold">Pays couverts</div>
-          <div class="font-serif text-[2rem] font-medium text-encre leading-none">4</div>
-          <div class="text-[0.78rem] text-terre-fonce mt-1.5">Cameroun · Congo · Gabon · RCA</div>
+          <div class="font-serif text-[2rem] font-medium text-encre leading-none">5</div>
+          <div class="text-[0.78rem] text-terre-fonce mt-1.5">Cameroun · Congo · Gabon · RCA · Tchad</div>
         </div>
       </div>
 
@@ -127,6 +132,7 @@ tailwind.config = {
             <option value="congo">🇨🇬 Congo</option>
             <option value="gabon">🇬🇦 Gabon</option>
             <option value="rca">🇨🇫 RCA</option>
+            <option value="tchad">🇹🇩 Tchad</option>
           </select>
         </div>
         <button class="btn-primaire bg-encre text-sable py-[11px] px-[22px] text-sm tracking-[.4px] border-none inline-flex items-center gap-2 hover:bg-terre-fonce transition-colors cursor-pointer" onclick="openModal()">
@@ -175,6 +181,7 @@ tailwind.config = {
             <option value="congo">🇨🇬 Congo</option>
             <option value="gabon">🇬🇦 Gabon</option>
             <option value="rca">🇨🇫 RCA</option>
+            <option value="tchad">🇹🇩 Tchad</option>
           </select>
         </div>
         <div class="form-group">

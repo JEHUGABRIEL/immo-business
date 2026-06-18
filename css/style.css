@@ -15,6 +15,61 @@ body::before {
   opacity: 0.5;
 }
 
+/* --- Header fixe : compensation + flou au scroll --- */
+.fixed-header {
+  padding-top: 105px;
+}
+@media (max-width: 700px) {
+  .fixed-header {
+    padding-top: 68px;
+  }
+}
+
+.header-wrap {
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+.header-wrap.scrolled {
+  background: rgba(251, 249, 244, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 1px 12px rgba(28, 27, 25, 0.08);
+}
+
+/* Header admin fixe */
+.header-wrap-admin {
+  position: fixed;
+  top: 0;
+  left: 248px;
+  right: 0;
+  z-index: 99;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+.header-wrap-admin.scrolled {
+  background: rgba(251, 249, 244, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 1px 12px rgba(28, 27, 25, 0.08);
+}
+.header-wrap-admin.toast-erreur {
+  background: #B94040 !important;
+}
+.header-wrap-admin.toast-erreur .header-wrap-admin-inner {
+  background: transparent !important;
+  border-color: rgba(255,255,255,0.15) !important;
+  color: #FBF9F4 !important;
+}
+.header-wrap-admin.toast-succes {
+  background: #2D6A4F !important;
+}
+.header-wrap-admin.toast-succes .header-wrap-admin-inner {
+  background: transparent !important;
+  border-color: rgba(255,255,255,0.15) !important;
+  color: #FBF9F4 !important;
+}
+.main-content {
+  padding-top: 62px;
+}
+
 /* --- Navigation responsive (mobile) --- */
 @media (max-width: 700px) {
   nav#navMenu {

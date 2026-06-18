@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" width="240" height="48">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&amp;family=Inter:wght@500&amp;display=swap');
+    </style>
+  </defs>
+  <!-- House icon (38x40, light version for dark bg) -->
+  <rect x="0" y="4" width="38" height="40" rx="7" fill="#FBF9F4"/>
+  <path d="M19 0L2 15.5h5.5V34h10V22.5h4V34h10V15.5h5.5L19 0z" fill="#A8693E" transform="translate(0, 4)"/>
+  <rect x="16.5" y="27" width="5" height="7" fill="#1C1B19"/>
+
+  <!-- Immo-Business -->
+  <text x="52" y="21" font-family="'Playfair Display', Georgia, serif" font-size="20" font-weight="600" fill="#FBF9F4" letter-spacing="0.5">Immo-Business</text>
+
+  <!-- Admin (two lines) -->
+  <text font-family="Inter, -apple-system, sans-serif" font-size="8.5" font-weight="500" fill="#A8693E" letter-spacing="3">
+    <tspan x="52" dy="33">INTERNATIONAL</tspan>
+    <tspan x="52" dy="10">ADMIN</tspan>
+  </text>
+</svg>

@@ -41,22 +41,24 @@
   window.updateFlag = function () {};
 
   /* ── DONNÉES ── */
-  var FLAGS = { cameroun: '🇨🇲', congo: '🇨🇬', gabon: '🇬🇦', rca: '🇨🇫' };
-  var PAYS_LABELS = { cameroun: 'Cameroun', congo: 'Congo', gabon: 'Gabon', rca: 'RCA' };
+  var FLAGS = { cameroun: '🇨🇲', congo: '🇨🇬', gabon: '🇬🇦', rca: '🇨🇫', tchad: '🇹🇩' };
+  var PAYS_LABELS = { cameroun: 'Cameroun', congo: 'Congo', gabon: 'Gabon', rca: 'RCA', tchad: 'Tchad' };
 
   var biens = [
     { id: uid(), pays: 'cameroun', flag: '🇨🇲', loc: 'Bastos, Yaoundé', titre: 'Villa moderne avec jardin', type: 'À vendre', prix: '85 000 000', unite: 'FCFA', det: ['5 ch.', '220 m²'], img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500&q=80' },
-    { id: uid(), pays: 'congo', flag: '🇨🇬', loc: 'Kintélé, Brazzaville', titre: 'Terrain titré, viabilisé', type: 'À vendre', prix: '25 000 000', unite: 'FCFA', det: ['600 m²', 'Titré'], img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&q=80' },
+    { id: uid(), pays: 'congo', flag: '🇨🇬', loc: 'Kintélé, Brazzaville', titre: 'Terrain titré, viabilisé', type: 'À vendre', prix: '25 000 000', unite: 'FCFA', det: ['600 m²', 'Titré'], img: 'images/Congo/Bien_1/720286546_1658192892137939_5436816513672571744_n.jpeg' },
     { id: uid(), pays: 'gabon', flag: '🇬🇦', loc: 'Glass, Libreville', titre: 'Appartement meublé standing', type: 'À louer', prix: '350 000', unite: 'FCFA / mois', det: ['3 ch.', '110 m²'], img: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80' },
-    { id: uid(), pays: 'rca', flag: '🇨🇫', loc: 'Boy-Rabe, Bangui', titre: 'Maison familiale', type: 'À vendre', prix: '38 000 000', unite: 'FCFA', det: ['4 ch.', '180 m²'], img: 'https://images.unsplash.com/photo-1560448204-603b3fc33ddc?w=500&q=80' },
+    { id: uid(), pays: 'rca', flag: '🇨🇫', loc: 'Boy-Rabe, Bangui', titre: 'Maison familiale', type: 'À vendre', prix: '38 000 000', unite: 'FCFA', det: ['4 ch.', '180 m²'], img: 'images/Centrafrique/Bien1/723686760_1472986368179534_1342459871268264140_n.jpg' },
     { id: uid(), pays: 'cameroun', flag: '🇨🇲', loc: 'Bonapriso, Douala', titre: 'Duplex vue mer', type: 'À vendre', prix: '95 000 000', unite: 'FCFA', det: ['4 ch.', '260 m²'], img: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=500&q=80' },
     { id: uid(), pays: 'congo', flag: '🇨🇬', loc: 'Centre-ville, Brazzaville', titre: 'Local commercial', type: 'À louer', prix: '600 000', unite: 'FCFA / mois', det: ['120 m²', 'RDC'], img: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=500&q=80' },
     { id: uid(), pays: 'gabon', flag: '🇬🇦', loc: 'Akanda, Libreville', titre: 'Villa en bord de mer', type: 'À vendre', prix: '120 000 000', unite: 'FCFA', det: ['6 ch.', '340 m²'], img: 'https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=500&q=80' },
-    { id: uid(), pays: 'rca', flag: '🇨🇫', loc: 'Lakouanga, Bangui', titre: 'Terrain résidentiel', type: 'À vendre', prix: '12 000 000', unite: 'FCFA', det: ['400 m²'], img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=500&q=80' },
+    { id: uid(), pays: 'rca', flag: '🇨🇫', loc: 'Lakouanga, Bangui', titre: 'Terrain résidentiel', type: 'À vendre', prix: '12 000 000', unite: 'FCFA', det: ['400 m²'], img: 'images/Centrafrique/Bien_2/724764602_1472940564850781_4738221180956559236_n.jpg' },
     { id: uid(), pays: 'cameroun', flag: '🇨🇲', loc: 'Mvan, Yaoundé', titre: 'Studio meublé', type: 'À louer', prix: '95 000', unite: 'FCFA / mois', det: ['1 ch.', '35 m²'], img: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80' },
-    { id: uid(), pays: 'congo', flag: '🇨🇬', loc: 'Pointe-Noire', titre: 'Villa avec piscine', type: 'À vendre', prix: '110 000 000', unite: 'FCFA', det: ['5 ch.', '300 m²'], img: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=500&q=80' },
+    { id: uid(), pays: 'congo', flag: '🇨🇬', loc: 'Pointe-Noire', titre: 'Villa avec piscine', type: 'À vendre', prix: '110 000 000', unite: 'FCFA', det: ['5 ch.', '300 m²'], img: 'images/Congo/Bien_2/720435694_1932618927391413_3486246096623244127_n.jpeg' },
     { id: uid(), pays: 'gabon', flag: '🇬🇦', loc: 'Owendo, Libreville', titre: 'Entrepôt industriel', type: 'À louer', prix: '1 200 000', unite: 'FCFA / mois', det: ['800 m²'], img: 'https://images.unsplash.com/photo-1565610222536-ef125c59da2e?w=500&q=80' },
-    { id: uid(), pays: 'rca', flag: '🇨🇫', loc: 'Centre-ville, Bangui', titre: 'Bureau standing', type: 'À louer', prix: '450 000', unite: 'FCFA / mois', det: ['90 m²'], img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&q=80' }
+    { id: uid(), pays: 'rca', flag: '🇨🇫', loc: 'Centre-ville, Bangui', titre: 'Bureau standing', type: 'À louer', prix: '450 000', unite: 'FCFA / mois', det: ['90 m²'], img: 'images/Centrafrique/Bien_3/684922424_1431399079004930_7827493068638778354_n.jpg' },
+    { id: uid(), pays: 'tchad', flag: '🇹🇩', loc: 'Centre-ville, N\'Djaména', titre: 'Appartement meublé', type: 'À louer', prix: '280 000', unite: 'FCFA / mois', det: ['2 ch.', '70 m²'], img: 'images/724666206_1472985994846238_7251162334942360209_n.jpg' },
+    { id: uid(), pays: 'tchad', flag: '🇹🇩', loc: 'Chagoua, N\'Djaména', titre: 'Villa avec terrain', type: 'À vendre', prix: '45 000 000', unite: 'FCFA', det: ['3 ch.', '150 m²', 'Terrain 400 m²'], img: 'https://images.unsplash.com/photo-1560448204-603b3fc33ddc?w=500&q=80' }
   ];
 
   function uid() { return 'b' + Math.random().toString(36).slice(2, 9); }
@@ -236,8 +238,20 @@
     t.innerHTML = '<i class="fa-solid ' + (type === 'succes' ? 'fa-circle-check' : type === 'erreur' ? 'fa-circle-xmark' : 'fa-circle-info') + '"></i> ' + msg;
     t.className = 'toast ' + (type || '');
     t.classList.add('show');
+
+    // Effet de transition sur l'en-tête admin
+    var header = document.querySelector('.header-wrap-admin');
+    if (header && type) {
+      header.classList.add('toast-' + type);
+    }
+
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () { t.classList.remove('show'); }, 3000);
+    toastTimer = setTimeout(function () {
+      t.classList.remove('show');
+      if (header && type) {
+        header.classList.remove('toast-' + type);
+      }
+    }, 3000);
   }
 
   /* fermer modales en cliquant dehors */

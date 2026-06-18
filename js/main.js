@@ -67,6 +67,23 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 })();
 
+// --- Header flou au scroll ---
+(function () {
+  'use strict';
+
+  var headers = document.querySelectorAll('.header-wrap, .header-wrap-admin');
+  if (!headers.length) return;
+
+  function onScroll() {
+    headers.forEach(function (h) {
+      h.classList.toggle('scrolled', window.scrollY > 40);
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); // état initial
+})();
+
 // --- Ripple effect (Material Design) ---
 (function () {
   'use strict';
