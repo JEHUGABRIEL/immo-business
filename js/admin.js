@@ -153,6 +153,15 @@
     dets = [];
 
   window.openModal = function (b) {
+    // Nettoyer les erreurs précédentes
+    document.querySelectorAll('.field-err').forEach(function (el) {
+      el.classList.remove('visible');
+      el.textContent = '';
+    });
+    document.querySelectorAll('.input-error').forEach(function (el) {
+      el.classList.remove('input-error');
+    });
+
     editingId = b ? b.id : null;
     document.getElementById('modalTitle').textContent = b ? 'Modifier le bien' : 'Ajouter un bien';
     document.getElementById('fTitre').value = b ? b.titre : '';
@@ -202,11 +211,66 @@
     if (url) { prev.src = url; prev.style.display = 'block'; ph.style.display = 'none'; } else { prev.style.display = 'none'; ph.style.display = 'flex'; }
   };
 
+  /* ── VALIDATION FORMULAIRE ── */
+  var adminFields = ['fTitre', 'fLoc', 'fPrix', 'fImg'];
+
+  // Nettoyage d'erreur en temps réel
+  adminFields.forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('input', function () {
+      this.classList.remove('input-error');
+      var errEl = document.getElementById('err-' + this.id);
+      if (errEl) {
+        errEl.classList.remove('visible');
+        errEl.textContent = '';
+      }
+    });
+  });
+
   window.saveBien = function () {
+    // Nettoyer les erreurs précédentes
+    document.querySelectorAll('.field-err').forEach(function (el) {
+      el.classList.remove('visible');
+      el.textContent = '';
+    });
+    document.querySelectorAll('.input-error').forEach(function (el) {
+      el.classList.remove('input-error');
+    });
+
     var titre = document.getElementById('fTitre').value.trim();
     var loc = document.getElementById('fLoc').value.trim();
     var prix = document.getElementById('fPrix').value.trim();
-    if (!titre || !loc || !prix) { showToast('Titre, localisation et prix sont requis.', 'erreur'); return; }
+    var imgUrl = document.getElementById('fImg').value.trim();
+
+    var fields = [
+      { id: 'fTitre', msg: 'Le titre du bien est requis.', validate: function (v) { return v.trim().length > 0; } },
+      { id: 'fLoc', msg: 'La localisation est requise.', validate: function (v) { return v.trim().length > 0; } },
+      { id: 'fPrix', msg: 'Le prix est requis.', validate: function (v) { return v.trim().length > 0; } },
+      { id: 'fImg', msg: 'L\'URL de l\'image semble invalide.', validate: function (v) {
+        if (!v.trim()) return true; // optionnel
+        return /^https?:\/\/.+\..+/i.test(v.trim());
+      } },
+    ];
+
+    var hasError = false;
+
+    fields.forEach(function (f) {
+      var el = document.getElementById(f.id);
+      var errEl = document.getElementById('err-' + f.id);
+      if (!el || !errEl) return;
+
+      var val = el.value || '';
+      if (!f.validate(val)) {
+        errEl.textContent = f.msg;
+        errEl.classList.add('visible');
+        el.classList.add('input-error');
+        hasError = true;
+      }
+    });
+
+    if (hasError) return;
+
     var pays = document.getElementById('fPays').value;
     var cleanDets = dets.filter(function (d) { return d.trim(); });
     var bien = {
@@ -219,7 +283,7 @@
       prix: prix,
       unite: document.getElementById('fUnite').value,
       det: cleanDets,
-      img: document.getElementById('fImg').value.trim() || 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&q=80'
+      img: imgUrl || 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&q=80'
     };
     if (editingId) {
       var idx = biens.findIndex(function (b) { return b.id === editingId; });

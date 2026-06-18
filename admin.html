@@ -149,6 +149,7 @@
         <div class="form-group full">
           <label class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce font-semibold">Titre du bien</label>
           <input type="text" id="fTitre" placeholder="Villa moderne avec jardin" class="border border-ligne bg-white px-3.5 py-[11px] text-sm text-encre outline-none focus:border-terre transition-colors w-full">
+          <span class="field-err" id="err-fTitre"></span>
         </div>
         <div class="form-group">
           <label class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce font-semibold">Pays</label>
@@ -163,6 +164,7 @@
         <div class="form-group">
           <label class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce font-semibold">Localisation</label>
           <input type="text" id="fLoc" placeholder="Bastos, Yaoundé" class="border border-ligne bg-white px-3.5 py-[11px] text-sm text-encre outline-none focus:border-terre transition-colors w-full">
+          <span class="field-err" id="err-fLoc"></span>
         </div>
         <div class="form-group">
           <label class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce font-semibold">Type</label>
@@ -174,6 +176,7 @@
         <div class="form-group">
           <label class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce font-semibold">Prix</label>
           <input type="text" id="fPrix" placeholder="85 000 000" class="border border-ligne bg-white px-3.5 py-[11px] text-sm text-encre outline-none focus:border-terre transition-colors w-full">
+          <span class="field-err" id="err-fPrix"></span>
         </div>
         <div class="form-group">
           <label class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce font-semibold">Unité</label>
@@ -185,6 +188,7 @@
         <div class="form-group full">
           <label class="text-[0.72rem] tracking-[1.5px] uppercase text-encre-douce font-semibold">URL de l'image</label>
           <input type="url" id="fImg" placeholder="https://…" oninput="previewImg()" class="border border-ligne bg-white px-3.5 py-[11px] text-sm text-encre outline-none focus:border-terre transition-colors w-full">
+          <span class="field-err" id="err-fImg"></span>
           <span class="text-[0.76rem] text-encre-douce/70">Unsplash, votre CDN, ou lien direct vers l'image</span>
           <div class="mt-2">
             <div class="img-placeholder" id="imgPlaceholder"><i class="fa-regular fa-image"></i>&nbsp; Aperçu de l'image</div>
