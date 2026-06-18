@@ -89,15 +89,15 @@ tailwind.config = {
       <!-- Stats rapides -->
       <div class="flex gap-10 mt-10 pt-6 border-t border-white/15">
         <div>
-          <strong class="block font-serif text-[1.6rem] font-medium text-sable">12</strong>
+          <strong id="statBiens" class="block font-serif text-[1.6rem] font-medium text-sable">—</strong>
           <span class="text-[0.72rem] text-sable/55 tracking-[.5px]">Biens disponibles</span>
         </div>
         <div>
-          <strong class="block font-serif text-[1.6rem] font-medium text-sable">4</strong>
+          <strong id="statPays" class="block font-serif text-[1.6rem] font-medium text-sable">—</strong>
           <span class="text-[0.72rem] text-sable/55 tracking-[.5px]">Pays couverts</span>
         </div>
         <div>
-          <strong class="block font-serif text-[1.6rem] font-medium text-sable">6</strong>
+          <strong id="statVilles" class="block font-serif text-[1.6rem] font-medium text-sable">—</strong>
           <span class="text-[0.72rem] text-sable/55 tracking-[.5px]">Villes</span>
         </div>
       </div>
@@ -115,11 +115,18 @@ tailwind.config = {
     <div class="filtre-chip" data-pays="rca">🇨🇫 RCA</div>
     <div class="filtre-chip" data-pays="tchad">🇹🇩 Tchad</div>
   </div>
+
+  <!-- Barre de recherche -->
+  <div class="relative mt-5 mb-1">
+    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-[0.85rem] text-encre-douce/40 pointer-events-none"></i>
+    <input type="text" id="searchInput" placeholder="Rechercher par titre, ville, mot-clé…" class="w-full pl-[38px] pr-4 py-[11px] border border-ligne rounded text-[0.9rem] text-encre font-sans bg-white outline-none focus:border-terre transition-colors duration-200 placeholder:text-encre-douce/35">
+    <button id="searchClearBtn" class="absolute right-3 top-1/2 -translate-y-1/2 bg-none border-none text-encre-douce/30 cursor-pointer text-sm hover:text-encre-douce/70 transition-colors hidden" aria-label="Effacer la recherche"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+
   <!-- Tri -->
-  <div class="flex items-center gap-3 pt-5">
+  <div class="flex items-center gap-3 pt-4">
     <span class="text-[0.72rem] tracking-[2px] uppercase text-terre font-semibold">Trier par</span>
     <button class="sort-chip actif" data-sort="date">📅 Plus récents</button>
-
   </div>
 </div>
 

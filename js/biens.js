@@ -28,6 +28,33 @@
     { id: _uid(), pays: 'tchad', flag: '🇹🇩', loc: 'Chagoua, N\'Djaména', titre: 'Villa avec terrain', type: 'À vendre', prix: '45 000 000', unite: 'FCFA', det: ['3 ch.', '150 m²', 'Terrain 400 m²'], imgs: ['https://images.unsplash.com/photo-1560448204-603b3fc33ddc?w=800&q=80', 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80', 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80'], dateAdded: daysAgo(15), desc: 'Villa de 150 m² sur un terrain de 400 m² dans le quartier résidentiel de Chagoua à N\'Djaména. Trois chambres, grand salon, cuisine moderne, jardin et garage. Proche des commodités et des écoles.' }
   ];
 
+  var PAYS_LABELS = { cameroun: 'Cameroun', congo: 'Congo', gabon: 'Gabon', rca: 'RCA', tchad: 'Tchad' };
+
+  /* ── STATS HERO DYNAMIQUES ── */
+  function updateHeroStats() {
+    var el = function (id) { return document.getElementById(id); };
+    var statBiens = el('statBiens');
+    var statPays = el('statPays');
+    var statVilles = el('statVilles');
+    if (!statBiens) return;
+
+    statBiens.textContent = biensListe.length;
+
+    var paysSet = {};
+    var villesSet = {};
+    biensListe.forEach(function (b) {
+      paysSet[b.pays] = true;
+      // Extraire le nom de la ville (après la virgule, ou la localité entière)
+      var parts = b.loc.split(',');
+      var ville = parts.length > 1 ? parts[parts.length - 1].trim() : b.loc.trim();
+      villesSet[ville] = true;
+    });
+    statPays.textContent = Object.keys(paysSet).length;
+    statVilles.textContent = Object.keys(villesSet).length;
+  }
+
+  updateHeroStats();
+
   var ICONS = {
     'ch': 'fa-bed',
     'm²': 'fa-ruler-combined',
@@ -236,8 +263,26 @@
     return liste.slice().sort(function (a, b) { return b.dateAdded - a.dateAdded; });
   }
 
-  function renderGrid(filtre) {
-    var liste = filtre === 'tous' ? biensListe : biensListe.filter(function (b) { return b.pays === filtre; });
+  function matchSearch(b, query) {
+    if (!query) return true;
+    var q = query.toLowerCase();
+    return b.titre.toLowerCase().indexOf(q) !== -1 ||
+      b.loc.toLowerCase().indexOf(q) !== -1 ||
+      (b.desc || '').toLowerCase().indexOf(q) !== -1 ||
+      PAYS_LABELS[b.pays].toLowerCase().indexOf(q) !== -1 ||
+      b.prix.toLowerCase().indexOf(q) !== -1 ||
+      b.type.toLowerCase().indexOf(q) !== -1;
+  }
+
+  function renderGrid(filtre, query) {
+    query = (query || '').trim();
+    var liste = biensListe;
+    if (filtre !== 'tous') {
+      liste = liste.filter(function (b) { return b.pays === filtre; });
+    }
+    if (query) {
+      liste = liste.filter(function (b) { return matchSearch(b, query); });
+    }
     liste = trier(liste);
     grid.innerHTML = liste.map(cardHTML).join('');
     Array.from(grid.querySelectorAll('.bien-card-full')).forEach(function (card) {
@@ -247,14 +292,22 @@
     });
   }
 
-  renderGrid('tous');
+  var currentFiltre = 'tous';
+  var searchQuery = '';
+
+  function refilter() {
+    renderGrid(currentFiltre, searchQuery);
+  }
+
+  renderGrid('tous', '');
 
   var chips = document.querySelectorAll('.filtre-chip');
   chips.forEach(function (chip) {
     chip.addEventListener('click', function () {
       chips.forEach(function (c) { c.classList.remove('actif'); });
       chip.classList.add('actif');
-      renderGrid(chip.dataset.pays);
+      currentFiltre = chip.dataset.pays;
+      refilter();
     });
   });
 
@@ -263,10 +316,31 @@
     chip.addEventListener('click', function () {
       sortChips.forEach(function (c) { c.classList.remove('actif'); });
       chip.classList.add('actif');
-      var paysActif = document.querySelector('.filtre-chip.actif');
-      renderGrid(paysActif ? paysActif.dataset.pays : 'tous');
+      refilter();
     });
   });
+
+  /* ── RECHERCHE EN TEMPS RÉEL ── */
+  var searchInput = document.getElementById('searchInput');
+  var searchClear = document.getElementById('searchClearBtn');
+  if (searchInput) {
+    searchInput.addEventListener('input', function () {
+      searchQuery = this.value;
+      if (searchClear) {
+        searchClear.style.display = searchQuery ? 'block' : 'none';
+      }
+      refilter();
+    });
+    if (searchClear) {
+      searchClear.addEventListener('click', function () {
+        searchInput.value = '';
+        searchQuery = '';
+        searchClear.style.display = 'none';
+        refilter();
+        searchInput.focus();
+      });
+    }
+  }
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
