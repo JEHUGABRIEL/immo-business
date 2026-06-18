@@ -194,6 +194,33 @@
       '</div></div>';
   }
 
+  /* ── FADE-IN AU SCROLL ── */
+  var fadeObserver = null;
+
+  function observeCardFadeIn() {
+    if (!window.IntersectionObserver) {
+      // Fallback: tout montrer directement si l'API n'est pas supportée
+      Array.from(document.querySelectorAll('.bien-card-full')).forEach(function (c) { c.classList.add('visible'); });
+      return;
+    }
+
+    // Recréer l'observer à chaque rendu
+    if (fadeObserver) fadeObserver.disconnect();
+
+    fadeObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    Array.from(document.querySelectorAll('.bien-card-full')).forEach(function (card) {
+      fadeObserver.observe(card);
+    });
+  }
+
   /* -- CARROUSEL -- */
   var carouselIdx = 0;
   var carouselImages = [];
@@ -375,6 +402,7 @@
       return;
     }
     grid.innerHTML = liste.map(cardHTML).join('');
+    observeCardFadeIn();
     Array.from(grid.querySelectorAll('.bien-card-full')).forEach(function (card) {
       card.addEventListener('click', function () {
         openDetailModal(this.dataset.id);

@@ -47,6 +47,17 @@ tailwind.config = {
   .hero-slide.active {
     opacity: 1;
   }
+
+  /* FADE-IN AU SCROLL */
+  .bien-card-full {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .bien-card-full.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 </style>
 </head>
 <body class="page-transition font-sans text-encre-douce bg-sable leading-relaxed antialiased fixed-header">
