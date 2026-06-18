@@ -30,6 +30,60 @@
 
   var PAYS_LABELS = { cameroun: 'Cameroun', congo: 'Congo', gabon: 'Gabon', rca: 'RCA', tchad: 'Tchad' };
 
+  /* ── HERO CARROUSEL (automatique) ── */
+  (function () {
+    var container = document.getElementById('heroSlides');
+    if (!container) return;
+
+    // Collecter la 1ère image de chaque bien (maximum 8 pour éviter la lourdeur)
+    var images = [];
+    for (var i = 0; i < biensListe.length && images.length < 8; i++) {
+      if (biensListe[i].imgs && biensListe[i].imgs.length) {
+        images.push(biensListe[i].imgs[0]);
+      }
+    }
+    if (images.length < 2) {
+      // Fallback: image statique
+      container.style.backgroundImage = 'url(' + (images[0] || 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80') + ')';
+      container.style.backgroundSize = 'cover';
+      container.style.backgroundPosition = 'center';
+      return;
+    }
+
+    // Créer les slides
+    container.innerHTML = images.map(function (url, i) {
+      return '<div class="hero-slide' + (i === 0 ? ' active' : '') + '" style="background-image:url(\'' + url + '\')"></div>';
+    }).join('');
+
+    var heroIdx = 0;
+    var heroTimer;
+
+    function nextHero() {
+      var slides = container.querySelectorAll('.hero-slide');
+      if (!slides.length) return;
+      slides[heroIdx].classList.remove('active');
+      heroIdx = (heroIdx + 1) % slides.length;
+      slides[heroIdx].classList.add('active');
+    }
+
+    function startHero() {
+      heroTimer = setInterval(nextHero, 5000);
+    }
+
+    function stopHero() {
+      clearInterval(heroTimer);
+    }
+
+    startHero();
+
+    // Pause au survol
+    var heroWrap = document.getElementById('heroCarousel');
+    if (heroWrap) {
+      heroWrap.addEventListener('mouseenter', stopHero);
+      heroWrap.addEventListener('mouseleave', startHero);
+    }
+  })();
+
   /* ── ANIMATION DE COMPTEUR ── */
   function animateCounter(el, target, duration) {
     if (!el) return;

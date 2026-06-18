@@ -34,6 +34,20 @@ tailwind.config = {
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/biens.css">
+<style>
+  /* HERO CAROUSEL */
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.4s ease-in-out;
+  }
+  .hero-slide.active {
+    opacity: 1;
+  }
+</style>
 </head>
 <body class="page-transition font-sans text-encre-douce bg-sable leading-relaxed antialiased fixed-header">
 
@@ -72,9 +86,9 @@ tailwind.config = {
 </div>
 
 <!-- ===== HERO ===== -->
-<div class="relative h-[50vh] min-h-[380px] bg-encre flex items-center overflow-hidden">
-  <!-- Image de fond -->
-  <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80');"></div>
+<div class="relative h-[50vh] min-h-[380px] bg-encre flex items-center overflow-hidden" id="heroCarousel">
+  <!-- Carrousel d'images de fond -->
+  <div id="heroSlides" class="absolute inset-0"></div>
   <!-- Overlay gradient -->
   <div class="absolute inset-0 bg-gradient-to-r from-encre/90 via-encre/60 to-transparent"></div>
   <!-- Contenu -->
