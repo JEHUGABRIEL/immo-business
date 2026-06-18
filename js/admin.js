@@ -40,6 +40,30 @@
   // Empty function referenced by onchange in the select
   window.updateFlag = function () {};
 
+  /* ── SALUTATION SELON L'HEURE ── */
+  function setGreeting() {
+    var el = document.getElementById('adminGreeting');
+    if (!el) return;
+    var h = new Date().getHours();
+    var msg;
+    var icon;
+    if (h >= 5 && h < 12) {
+      msg = 'Bonjour';
+      icon = 'fa-sun';
+    } else if (h >= 12 && h < 17) {
+      msg = 'Bon après-midi';
+      icon = 'fa-cloud-sun';
+    } else if (h >= 17 && h < 21) {
+      msg = 'Bonsoir';
+      icon = 'fa-moon';
+    } else {
+      msg = 'Bonne nuit';
+      icon = 'fa-star';
+    }
+    el.innerHTML = '<i class="fa-solid ' + icon + ' text-terre mr-2.5"></i>' + msg + ', admin';
+  }
+  setGreeting();
+
   /* ── DONNÉES ── */
   var FLAGS = { cameroun: '🇨🇲', congo: '🇨🇬', gabon: '🇬🇦', rca: '🇨🇫', tchad: '🇹🇩' };
   var PAYS_LABELS = { cameroun: 'Cameroun', congo: 'Congo', gabon: 'Gabon', rca: 'RCA', tchad: 'Tchad' };
