@@ -107,9 +107,9 @@
   }
 
   function frameHTML(items) {
-    return '<div class=\"biens-frame grid grid-cols-[1.5fr_1fr] gap-1 min-w-full\">' +
+    return '<div class=\"biens-frame grid grid-cols-[1.5fr_1fr] max-md:grid-cols-1 gap-1 min-w-full\">' +
       tileHTML(items[0], true) +
-      '<div class=\"flex flex-col gap-1\">' + tileHTML(items[1], false) + tileHTML(items[2], false) + tileHTML(items[3], false) + '</div>' +
+      '<div class=\"flex flex-col gap-1 max-md:hidden\">' + tileHTML(items[1], false) + tileHTML(items[2], false) + tileHTML(items[3], false) + '</div>' +
       '</div>';
   }
 
