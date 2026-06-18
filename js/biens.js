@@ -397,7 +397,7 @@
     }
     liste = trier(liste);
     if (!liste.length) {
-      grid.innerHTML = '<div class="col-span-full flex flex-col items-center justify-center py-20 text-center">' +
+      grid.innerHTML = '<div class="col-span-full flex flex-col items-center justify-center py-20 text-center empty-state-card">' +
         '<div class="w-20 h-20 rounded-full bg-sable-fonce flex items-center justify-center mb-6">' +
           '<i class="fa-solid fa-magnifying-glass text-[1.6rem] text-encre-douce/30"></i>' +
         '</div>' +
@@ -406,6 +406,11 @@
           (query ? 'Essayez de modifier vos mots-clés ou de sélectionner un autre filtre.' : 'Aucun bien disponible dans cette catégorie pour le moment.') +
         '</p>' +
       '</div>';
+      // Fade-in de l'état vide
+      setTimeout(function () {
+        var emptyCard = grid.querySelector('.empty-state-card');
+        if (emptyCard) emptyCard.classList.add('visible');
+      }, 50);
       return;
     }
     grid.innerHTML = liste.map(cardHTML).join('');
