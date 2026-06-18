@@ -30,6 +30,26 @@
 
   var PAYS_LABELS = { cameroun: 'Cameroun', congo: 'Congo', gabon: 'Gabon', rca: 'RCA', tchad: 'Tchad' };
 
+  /* ── ANIMATION DE COMPTEUR ── */
+  function animateCounter(el, target, duration) {
+    if (!el) return;
+    var start = null;
+    var initial = parseInt(el.textContent, 10) || 0;
+
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      var progress = Math.min((timestamp - start) / duration, 1);
+      // ease-out quad
+      var eased = 1 - (1 - progress) * (1 - progress);
+      var current = Math.round(initial + (target - initial) * eased);
+      el.textContent = current;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
   /* ── STATS HERO DYNAMIQUES ── */
   function updateHeroStats() {
     var el = function (id) { return document.getElementById(id); };
@@ -38,19 +58,23 @@
     var statVilles = el('statVilles');
     if (!statBiens) return;
 
-    statBiens.textContent = biensListe.length;
+    var nbrBiens = biensListe.length;
 
     var paysSet = {};
     var villesSet = {};
     biensListe.forEach(function (b) {
       paysSet[b.pays] = true;
-      // Extraire le nom de la ville (après la virgule, ou la localité entière)
       var parts = b.loc.split(',');
       var ville = parts.length > 1 ? parts[parts.length - 1].trim() : b.loc.trim();
       villesSet[ville] = true;
     });
-    statPays.textContent = Object.keys(paysSet).length;
-    statVilles.textContent = Object.keys(villesSet).length;
+    var nbrPays = Object.keys(paysSet).length;
+    var nbrVilles = Object.keys(villesSet).length;
+
+    // Lancer les animations (décalées pour plus de fluidité)
+    animateCounter(statBiens, nbrBiens, 900);
+    setTimeout(function () { animateCounter(statPays, nbrPays, 800); }, 200);
+    setTimeout(function () { animateCounter(statVilles, nbrVilles, 800); }, 400);
   }
 
   updateHeroStats();
