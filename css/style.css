@@ -195,6 +195,15 @@ nav a.actif::after {
   transition: background .25s;
 }
 
+/* --- Icônes de formulaire : centrage vertical parfait --- */
+.form-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
 /* --- Animations boutons : scale au hover + rebound au click --- */
 .btn-action {
   transition: all 0.25s ease;
