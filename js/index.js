@@ -147,41 +147,4 @@
     }
   }
 
-  /* ── CARROUSEL PAYS (bande "Nos terrains d'action") ── */
-  (function () {
-    var paysListe = [
-      { flag: '🇨🇲', nom: 'Cameroun', ville: 'Yaoundé, Douala' },
-      { flag: '🇨🇬', nom: 'Congo', ville: 'Brazzaville' },
-      { flag: '🇬🇦', nom: 'Gabon', ville: 'Libreville' },
-      { flag: '🇨🇫', nom: 'RCA', ville: 'Bangui' },
-      { flag: '🇹🇩', nom: 'Tchad', ville: 'N\'Djaména' },
-    ];
-    var idx = 0;
-    var slide = document.getElementById('paysCarouselSlide');
-    var flagEl = document.getElementById('paysFlag');
-    var nomEl = document.getElementById('paysNom');
-    var villeEl = document.getElementById('paysVille');
-
-    if (!slide || !flagEl || !nomEl || !villeEl) return;
-
-    function showPays(n) {
-      var p = paysListe[n];
-      flagEl.textContent = p.flag;
-      nomEl.textContent = p.nom;
-      villeEl.textContent = p.ville;
-    }
-
-    function nextPays() {
-      slide.classList.add('fade-out');
-      setTimeout(function () {
-        idx = (idx + 1) % paysListe.length;
-        showPays(idx);
-        slide.classList.remove('fade-out');
-      }, 600);
-    }
-
-    showPays(0);
-    setInterval(nextPays, 3500);
-  })();
-
 })();

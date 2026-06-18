@@ -256,13 +256,28 @@ nav a.actif::after {
   50% { box-shadow: 0 0 0 6px rgba(212, 160, 23, 0); }
 }
 
-/* --- Carrousel pays (bande "Nos terrains d'action") --- */
-.pays-slide {
-  opacity: 1;
-  transition: opacity 0.6s ease;
+/* --- Bande pays : marquee défilement continu --- */
+.pays-marquee-track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: marqueeScroll 40s linear infinite;
 }
-.pays-slide.fade-out {
-  opacity: 0;
+.pays-marquee-track:hover {
+  animation-play-state: paused;
+}
+.pays-marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 28px;
+  border-left: 1px solid #DFD9C9;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* --- Animations diverses --- */

@@ -110,17 +110,23 @@ tailwind.config = {
   </div>
 </div>
 
-<!-- ===== BANDE PAYS (carrousel automatique) ===== -->
+<!-- ===== BANDE PAYS (marquee défilement continu) ===== -->
 <div class="bg-sable-fonce border-b border-ligne border-t border-ligne">
-  <div class="max-w-[1240px] mx-auto px-8 py-[30px] flex items-center gap-0 pays-carousel-wrap">
+  <div class="max-w-[1240px] mx-auto px-8 py-[30px] flex items-center gap-0">
     <span class="text-[0.74rem] tracking-[2px] uppercase text-terre-fonce font-semibold whitespace-nowrap mr-9 shrink-0">Nos terrains d'action</span>
-    <div class="border-l border-ligne pl-7 flex-1 min-w-0">
-      <div id="paysCarouselSlide" class="flex items-center gap-2.5 pays-slide">
-        <span id="paysFlag" class="text-[1.15rem]"></span>
-        <div>
-          <strong id="paysNom" class="font-serif text-base text-encre font-medium"></strong>
-          <span id="paysVille" class="text-[0.74rem] text-encre-douce block"></span>
-        </div>
+    <div class="border-l border-ligne pl-7 flex-1 min-w-0 overflow-hidden">
+      <div class="pays-marquee-track">
+        <div class="pays-marquee-item"><span class="text-[1.15rem]">🇨🇲</span><div><strong class="font-serif text-base text-encre font-medium">Cameroun</strong><span class="text-[0.74rem] text-encre-douce block">Yaoundé, Douala</span></div></div>
+        <div class="pays-marquee-item"><span class="text-[1.15rem]">🇨🇬</span><div><strong class="font-serif text-base text-encre font-medium">Congo</strong><span class="text-[0.74rem] text-encre-douce block">Brazzaville</span></div></div>
+        <div class="pays-marquee-item"><span class="text-[1.15rem]">🇬🇦</span><div><strong class="font-serif text-base text-encre font-medium">Gabon</strong><span class="text-[0.74rem] text-encre-douce block">Libreville</span></div></div>
+        <div class="pays-marquee-item"><span class="text-[1.15rem]">🇨🇫</span><div><strong class="font-serif text-base text-encre font-medium">RCA</strong><span class="text-[0.74rem] text-encre-douce block">Bangui</span></div></div>
+        <div class="pays-marquee-item"><span class="text-[1.15rem]">🇹🇩</span><div><strong class="font-serif text-base text-encre font-medium">Tchad</strong><span class="text-[0.74rem] text-encre-douce block">N'Djaména</span></div></div>
+        <!-- copie pour boucle infinie -->
+        <div class="pays-marquee-item"><span class="text-[1.15rem]">🇨🇲</span><div><strong class="font-serif text-base text-encre font-medium">Cameroun</strong><span class="text-[0.74rem] text-encre-douce block">Yaoundé, Douala</span></div></div>
+        <div class="pays-marquee-item"><span class="text-[1.15rem]">🇨🇬</span><div><strong class="font-serif text-base text-encre font-medium">Congo</strong><span class="text-[0.74rem] text-encre-douce block">Brazzaville</span></div></div>
+        <div class="pays-marquee-item"><span class="text-[1.15rem]">🇬🇦</span><div><strong class="font-serif text-base text-encre font-medium">Gabon</strong><span class="text-[0.74rem] text-encre-douce block">Libreville</span></div></div>
+        <div class="pays-marquee-item"><span class="text-[1.15rem]">🇨🇫</span><div><strong class="font-serif text-base text-encre font-medium">RCA</strong><span class="text-[0.74rem] text-encre-douce block">Bangui</span></div></div>
+        <div class="pays-marquee-item"><span class="text-[1.15rem]">🇹🇩</span><div><strong class="font-serif text-base text-encre font-medium">Tchad</strong><span class="text-[0.74rem] text-encre-douce block">N'Djaména</span></div></div>
       </div>
     </div>
   </div>
