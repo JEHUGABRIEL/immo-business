@@ -52,11 +52,17 @@ tailwind.config = {
   .bien-card-full {
     opacity: 0;
     transform: translateY(24px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
   }
   .bien-card-full.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* HOVER SUR CARTES : léger agrandissement + ombre */
+  .bien-card-full.visible:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(28, 27, 25, 0.1);
   }
 </style>
 </head>
