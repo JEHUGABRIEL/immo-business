@@ -142,6 +142,20 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('pointerdown', createRipple);
 })();
 
+// --- Retour en haut ---
+(function () {
+  'use strict';
+  var btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  function toggle() {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  }
+
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+})();
+
 // --- Helpers ---
 function escHtml(s) {
   return String(s)
